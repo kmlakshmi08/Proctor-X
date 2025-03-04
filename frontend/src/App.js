@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter,Router,Route} from "react-router-dom"
+import {BrowserRouter,Routes,Route} from "react-router-dom"
 
 import Camera from "./components/Camera";
 
@@ -8,7 +8,7 @@ function App() {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="\camera" element={Camera}></Route>
+                    <Route path="/camera" element={<Camera />}></Route>
                 </Routes>
             </BrowserRouter>
         </>
