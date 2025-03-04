@@ -1,28 +1,30 @@
-React Project
-
-Getting Started
+Proctoring App
 
 Follow these steps to set up the project on your local machine:
 
 Prerequisites
 
 Make sure you have the following installed:
-
 Node.js (LTS version recommended)
-
 npm or yarn
 
 Installation
 
 Clone the repository:
+git clone [text](https://github.com/pruthvikp/Online_Proctoring_System.git)
+cd Online_Proctoring_System
+code .
 
-git clone <repository_url>
-cd <project_folder>
+Install Frontend dependencies in frontend folder:
 
-Install dependencies:
-
+cd frontend
 npm install
 npm install react-router-dom
+npm install @reduxjs/toolkit react-redux
+
+Install Backend dependencies in backend folder:
+
+cd ../backend
 npm install mongoose
 npm install express
 npm install cors
@@ -31,30 +33,9 @@ Running the Project
 
 To start the development server:
 
+navigate to backend folder
+python main.py
+npx nodemon server.js
+
+navigate to frontend folder
 npm start
-
-Build for Production
-
-To create a production build:
-
-npm run build
-
-Additional Packages
-
-This project uses the following dependencies:
-
-React Router: react-router-dom
-
-MongoDB ORM: mongoose
-
-Backend Framework: express
-
-CORS Handling: cors
-
-License
-
-Specify the license (e.g., MIT, Apache, etc.) if applicable.
-
-Contributing
-
-Include contribution guidelines if the project is open for collaboration.
