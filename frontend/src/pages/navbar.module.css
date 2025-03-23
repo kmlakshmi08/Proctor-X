@@ -21,3 +21,13 @@
 .navitem ul{
     gap: 30px;
 }
+.navitem ul li a{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.5s ease;
+}
+.navitem ul li a:hover{
+    border-bottom: 2px solid black;
+}

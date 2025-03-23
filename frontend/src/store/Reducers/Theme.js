@@ -1,7 +1,7 @@
 import * as act from "../types"
 
 const initState = {
-    mode: "Light"
+    mode: "light"
 }
 
 export const themeReducer = (state = initState, action) => {

@@ -5,6 +5,7 @@ import { Provider } from "react-redux"
 import Camera from "./pages/Camera.jsx";
 import { Persistor, store } from "./reducer.js";
 import Navbar from "./pages/Navbar.jsx";
+import Home from "./pages/Home.jsx";
 
 function App() {
     return (
@@ -15,7 +16,7 @@ function App() {
                     <Navbar/>
                         <Routes>
                             <Route path="/camera" element={<Camera />}></Route>
-                            <Route path="/" element={<></>}></Route>
+                            <Route path="/" element={<Home />}></Route>
                         </Routes>
                     </BrowserRouter>
                 </PersistGate>
