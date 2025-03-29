@@ -5,11 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Frontend",
+            "name": "Start Frontend",
             "type": "node",
             "request": "launch",
             "program": "Online_Proctoring_System/frontend/src/index.js",
-            "preLaunchTask": "Start Frontend"
+            "preLaunchTask": "Start Backend Server"
+        },
+        {
+
+            "name": "Start Backend",
+            "type": "node",
+            "request": "attach",
+            "port": 9229,
+            "restart": true,
+            "skipFiles": ["<node_internals>/**"],
+            "outFiles": ["${workspaceFolder}/backend/**/*.js"]
         }
     ]
 }

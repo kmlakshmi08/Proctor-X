@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 
 router.post('/adduser', async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { username, password, photo } = req.body;
 
         const existingUser = await userSchema.findOne({ username });
         if (existingUser) {
@@ -21,15 +21,16 @@ router.post('/adduser', async (req, res) => {
         }
 
         const newUser = new userSchema({
-            username,  
-            password
+            username,
+            password,
+            photo
         });
-
+        
         const result = await newUser.save();
         return res.status(201).json({ message: "User created successfully", user: result });
-        
+
     } catch (error) {
-        res.status(500).json({ error: "Error in saving user data." });
+        res.status(500).json({ error: error });
     }
 });
 
@@ -43,10 +44,10 @@ router.post("/userlogin", async (req, res) => {
             return res.status(400).json({ error: "User not found" });
         }
 
-        if (password==user.password) {
+        if (password == user.password) {
             return res.status(200).json({ message: "Login successful", user });
         }
-        else{
+        else {
             return res.status(400).json({ error: "Invalid password" });
         }
 

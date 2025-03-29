@@ -9,6 +9,15 @@
 				"cwd": "./frontend"
 			},
 			"problemMatcher": []
-		}
+		},
+		{
+			"label": "Start Backend Server",
+			"type": "shell",
+			"command": "npx nodemon server.js",
+			"problemMatcher": [],
+			"options": {
+			  "cwd": "./backend"
+			}
+		  }
 	]
 }
