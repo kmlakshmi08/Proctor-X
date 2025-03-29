@@ -1,0 +1,33 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+.navbar img{
+    height: 40px;
+}
+
+.navitem,
+.navitem ul,
+.navitem ul li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.navitem,
+.navitem ul{
+    gap: 30px;
+}
+.navitem ul li a{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.5s ease;
+}
+.navitem ul li a:hover{
+    border-bottom: 2px solid black;
+}
