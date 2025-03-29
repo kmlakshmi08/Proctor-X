@@ -1,41 +1,55 @@
-### Proctoring App  
-  
-Follow these steps to set up the project on your local machine:  
-  
-#### Prerequisites  
-  
-Make sure you have the following installed:  
-Node.js (LTS version recommended)  
-npm or yarn  
-  
-#### Installation  
+# Proctoring App  
 
-Clone the repository:  
-git clone [text](https://github.com/pruthvikp/Online_Proctoring_System.git)  
+Follow these steps to set up the project on your local machine.
+
+## Prerequisites  
+Make sure you have the following installed:
+- **Node.js** (LTS version recommended)
+- **npm** or **yarn**
+- **Python** (for the backend)
+
+## Installation  
+
+### Clone the Repository  
+```sh
+git clone https://github.com/pruthvikp/Online_Proctoring_System.git  
 cd Online_Proctoring_System  
-code .  
-  
-Install Frontend dependencies in frontend folder:  
-  
+code .
+```
+
+### Install Frontend Dependencies  
+Navigate to the `frontend` folder and install dependencies:
+```sh
 cd frontend  
 npm install  
 npm install react-router-dom  
 npm install @reduxjs/toolkit react-redux  
-  
-Install Backend dependencies in backend folder:  
-  
+```
+
+### Install Backend Dependencies  
+Navigate to the `backend` folder and install dependencies:
+```sh
 cd ../backend  
-npm install mongoose  
-npm install express   
-npm install cors  
-  
-Running the Project  
-  
-To start the development server:  
-  
-navigate to backend folder  
-python main.py  
+npm install  
+npm install mongoose express cors  
+```
+
+## Running the Project  
+
+### Start Backend Server  
+Navigate to the `backend` folder and run:
+```sh
+cd backend  
+python server.py  
 npx nodemon server.js  
-  
-navigate to frontend folder  
+```
+
+### Start Frontend Server  
+Navigate to the `frontend` folder and run:
+```sh
+cd frontend  
 npm start  
+```
+
+Your project should now be running successfully!
+
