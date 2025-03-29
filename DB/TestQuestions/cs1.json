@@ -1,0 +1,106 @@
+{
+    "testName": "Computer Science Test 1",
+    "subject": "Computer Science",
+    "questions": [
+        {
+            "question": "What does CPU stand for?",
+            "options": ["Central Processing Unit", "Computer Personal Unit", "Central Performance Unit", "Central Processor Unit"],
+            "correctAnswer": "Central Processing Unit"
+        },
+        {
+            "question": "Which of the following is an example of an operating system?",
+            "options": ["Microsoft Word", "Windows 10", "Google Chrome", "Python"],
+            "correctAnswer": "Windows 10"
+        },
+        {
+            "question": "Which data structure uses FIFO (First In, First Out)?",
+            "options": ["Stack", "Queue", "Array", "Linked List"],
+            "correctAnswer": "Queue"
+        },
+        {
+            "question": "Which language is known as the 'mother of all programming languages'?",
+            "options": ["Python", "C", "Java", "Assembly"],
+            "correctAnswer": "C"
+        },
+        {
+            "question": "What is the full form of HTML?",
+            "options": ["Hyper Text Markup Language", "High Tech Machine Language", "Hyperlink and Text Markup Language", "Home Tool Markup Language"],
+            "correctAnswer": "Hyper Text Markup Language"
+        },
+        {
+            "question": "Which of the following is NOT a programming language?",
+            "options": ["JavaScript", "HTML", "Python", "C++"],
+            "correctAnswer": "HTML"
+        },
+        {
+            "question": "What does RAM stand for?",
+            "options": ["Read Access Memory", "Random Access Memory", "Remote Access Memory", "Rapid Action Memory"],
+            "correctAnswer": "Random Access Memory"
+        },
+        {
+            "question": "Which of these is a relational database management system?",
+            "options": ["MySQL", "MongoDB", "Redis", "Elasticsearch"],
+            "correctAnswer": "MySQL"
+        },
+        {
+            "question": "What is the main function of an operating system?",
+            "options": ["Playing games", "Managing hardware and software resources", "Running antivirus software", "Editing documents"],
+            "correctAnswer": "Managing hardware and software resources"
+        },
+        {
+            "question": "Which of the following is an example of a scripting language?",
+            "options": ["C++", "Java", "Python", "Assembly"],
+            "correctAnswer": "Python"
+        },
+        {
+            "question": "Which logic gate outputs true only when both inputs are true?",
+            "options": ["AND", "OR", "XOR", "NOR"],
+            "correctAnswer": "AND"
+        },
+        {
+            "question": "Which company developed the Java programming language?",
+            "options": ["Microsoft", "Apple", "Sun Microsystems", "IBM"],
+            "correctAnswer": "Sun Microsystems"
+        },
+        {
+            "question": "Which protocol is used to send emails?",
+            "options": ["FTP", "SMTP", "HTTP", "TCP"],
+            "correctAnswer": "SMTP"
+        },
+        {
+            "question": "What does SQL stand for?",
+            "options": ["Structured Query Language", "Simple Query Logic", "System Query Language", "Sequential Query Language"],
+            "correctAnswer": "Structured Query Language"
+        },
+        {
+            "question": "Which of the following is an example of a NoSQL database?",
+            "options": ["MySQL", "MongoDB", "PostgreSQL", "Oracle"],
+            "correctAnswer": "MongoDB"
+        },
+        {
+            "question": "What does DNS stand for?",
+            "options": ["Domain Name System", "Dynamic Network Service", "Digital Numbering Sequence", "Data Network Server"],
+            "correctAnswer": "Domain Name System"
+        },
+        {
+            "question": "Which of these is NOT an example of an input device?",
+            "options": ["Keyboard", "Mouse", "Monitor", "Scanner"],
+            "correctAnswer": "Monitor"
+        },
+        {
+            "question": "What is the time complexity of binary search?",
+            "options": ["O(n)", "O(n²)", "O(log n)", "O(1)"],
+            "correctAnswer": "O(log n)"
+        },
+        {
+            "question": "Which of the following is used to style web pages?",
+            "options": ["HTML", "CSS", "JavaScript", "PHP"],
+            "correctAnswer": "CSS"
+        },
+        {
+            "question": "Which programming language is commonly used for Artificial Intelligence?",
+            "options": ["C", "JavaScript", "Python", "Swift"],
+            "correctAnswer": "Python"
+        }
+    ]
+}

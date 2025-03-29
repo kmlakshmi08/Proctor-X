@@ -1,0 +1,106 @@
+{
+    "testName": "Computer Science Test 2",
+    "subject": "Computer Science",
+    "questions": [
+        {
+            "question": "What does HTTP stand for?",
+            "options": ["HyperText Transfer Protocol", "Hyper Transfer Text Protocol", "High Transmission Text Protocol", "HyperText Transmission Process"],
+            "correctAnswer": "HyperText Transfer Protocol"
+        },
+        {
+            "question": "Which programming language is mainly used for web development?",
+            "options": ["Python", "Java", "C++", "JavaScript"],
+            "correctAnswer": "JavaScript"
+        },
+        {
+            "question": "What does CSS stand for?",
+            "options": ["Computer Style Sheets", "Cascading Style Sheets", "Colorful Style Sheets", "Creative Styling System"],
+            "correctAnswer": "Cascading Style Sheets"
+        },
+        {
+            "question": "Which of the following is NOT a type of network topology?",
+            "options": ["Star", "Bus", "Tree", "Cycle"],
+            "correctAnswer": "Cycle"
+        },
+        {
+            "question": "Which type of memory is volatile?",
+            "options": ["ROM", "SSD", "RAM", "HDD"],
+            "correctAnswer": "RAM"
+        },
+        {
+            "question": "What does API stand for?",
+            "options": ["Application Programming Interface", "Advanced Program Integration", "Automated Process Interaction", "Application Process Interface"],
+            "correctAnswer": "Application Programming Interface"
+        },
+        {
+            "question": "Which company developed the C programming language?",
+            "options": ["Apple", "Microsoft", "Bell Labs", "Google"],
+            "correctAnswer": "Bell Labs"
+        },
+        {
+            "question": "Which of the following is NOT a database management system?",
+            "options": ["MySQL", "PostgreSQL", "SQLite", "Java"],
+            "correctAnswer": "Java"
+        },
+        {
+            "question": "Which of the following data structures follows the LIFO principle?",
+            "options": ["Queue", "Array", "Stack", "Linked List"],
+            "correctAnswer": "Stack"
+        },
+        {
+            "question": "Which command is used to display the contents of a directory in Linux?",
+            "options": ["ls", "cd", "dir", "list"],
+            "correctAnswer": "ls"
+        },
+        {
+            "question": "Which of the following is an example of a high-level programming language?",
+            "options": ["Assembly", "C", "Machine Code", "Binary"],
+            "correctAnswer": "C"
+        },
+        {
+            "question": "What does LAN stand for?",
+            "options": ["Local Access Network", "Large Area Network", "Local Area Network", "Linked Advanced Network"],
+            "correctAnswer": "Local Area Network"
+        },
+        {
+            "question": "Which algorithm is used in the QuickSort sorting technique?",
+            "options": ["Divide and Conquer", "Dynamic Programming", "Greedy Algorithm", "Brute Force"],
+            "correctAnswer": "Divide and Conquer"
+        },
+        {
+            "question": "What does the acronym AI stand for in computer science?",
+            "options": ["Automated Interaction", "Artificial Intelligence", "Advanced Integration", "Artificial Information"],
+            "correctAnswer": "Artificial Intelligence"
+        },
+        {
+            "question": "Which of the following is NOT an operating system?",
+            "options": ["Windows", "Linux", "Android", "Google Chrome"],
+            "correctAnswer": "Google Chrome"
+        },
+        {
+            "question": "What is the full form of IP in networking?",
+            "options": ["Internet Protocol", "Internet Process", "Internal Pathway", "Interconnected Protocol"],
+            "correctAnswer": "Internet Protocol"
+        },
+        {
+            "question": "Which of these is an example of cloud storage?",
+            "options": ["Google Drive", "USB Drive", "Hard Disk", "RAM"],
+            "correctAnswer": "Google Drive"
+        },
+        {
+            "question": "What is the main function of a compiler?",
+            "options": ["Execute programs", "Convert source code into machine code", "Debug errors", "Optimize software performance"],
+            "correctAnswer": "Convert source code into machine code"
+        },
+        {
+            "question": "Which programming language is most commonly used for developing mobile applications?",
+            "options": ["Swift", "C#", "HTML", "Kotlin"],
+            "correctAnswer": "Kotlin"
+        },
+        {
+            "question": "What is the purpose of a firewall in a network?",
+            "options": ["Store user data", "Monitor internet usage", "Protect against unauthorized access", "Speed up browsing"],
+            "correctAnswer": "Protect against unauthorized access"
+        }
+    ]
+}

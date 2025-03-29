@@ -13,8 +13,10 @@ mongoose.connect('mongodb+srv://pruthvi2003kp:d3cu4Byk1bxuW3ri@onlineproctoring.
         console.log("Error in connecting DB", err);
     });
 
-const userRouter=require("./routers/userRouter.js")
+const userRouter=require("./routers/userRouter.js");
+const testRouter=require("./routers/testRouter.js");
 
 app.use(cors());
 app.use(express.json());
 app.use('/login',userRouter);
+app.use('/test',testRouter);
