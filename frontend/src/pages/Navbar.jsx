@@ -18,7 +18,7 @@ export default function Navbar() {
                 </div>
                 <div className={styles.navitem}>
                     <ul>
-                        <li><a href="/">Home</a></li>
+                        <li><a href="/home">Home</a></li>
                         <li><a href="/tests">Tests</a></li>
                         <li><a href="/camera">Reports</a></li>
                         <li>
