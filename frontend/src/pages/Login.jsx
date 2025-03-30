@@ -8,6 +8,7 @@ const url = "http://localhost:3001/login/userlogin"
 
 export default function Login() {
     const navigate = useNavigate();
+    const [msg,setMsg] = useState("");
     const [formdata, setFormData] = useState({
         username: "",
         password: "",
@@ -15,10 +16,13 @@ export default function Login() {
     const submit = async (e) => {
         e.preventDefault();
         try {
-            console.log(formdata);
-            const result = await axios.post(url, formdata,{
-                headers: { "Content-Type": "application/json" }
-            })
+            const result = await axios.post(url, formdata)
+            if(result.data?.error){
+                setMsg(result.data.error);
+            }
+            else if(result.data?.message){
+                navigate("/home")
+            }
             console.log(result)
         }
         catch (err) {
@@ -38,9 +42,15 @@ export default function Login() {
         <>
             <div className={styles.signup}>
                 <form className={styles.singupform}>
-                    <h1>Welcome</h1>
+                    <h1>Welcome Back</h1>
                     <input placeholder="username" type="text" value={formdata.username} onChange={(e) => { handlechange(e, "username") }} />
                     <input placeholder="password" type="password" value={formdata.password} onChange={(e) => { handlechange(e, "password") }} />
+                    {
+                        msg === "" ?
+                        null:
+                        <><span>{msg}</span></>
+                    }
+                    <a href="/">Don't have an account yet?</a>
                     <button onClick={submit}>Submit</button>
                 </form>
             </div>

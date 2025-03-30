@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./login.module.css"
 import axios from 'axios'
-import {convertToB64} from "./utils.js"
+import { convertToB64 } from "./utils.js"
 import { useNavigate } from "react-router-dom";
 import * as img from "../img/index"
 
@@ -9,6 +9,7 @@ const url = "http://localhost:3001/login/adduser"
 
 export default function Signup() {
     const navigate = useNavigate();
+    const [msg, setMsg] = useState("");
     const [formdata, setFormData] = useState({
         username: "",
         password: "",
@@ -18,18 +19,22 @@ export default function Signup() {
     const submit = async (e) => {
         e.preventDefault();
         try {
-            if(formdata.username === "" || formdata.password === "" || formdata.photo === ""){
-                alert("Please fill in all the details.")
+            if (formdata.username === "" || formdata.password === "" || formdata.photo === "") {
+                setMsg("Please enter all details.")
                 return
             }
-            if(formdata.password !== formdata.confirmpassword){
-                alert("Password and Confirm password do not match.")
+            if (formdata.password !== formdata.confirmpassword) {
+                setMsg("Password and confirm password do not match.")
                 return
             }
             const result = await axios.post(url, formdata)
-            alert("Created user successfully")
-            navigate("/home")
             console.log(result)
+            if(result.data.message){
+                navigate("/home")
+            }
+            else if(result.data.error){
+                setMsg(result.data.error)
+            }
         }
         catch (err) {
             console.error(err)
@@ -68,6 +73,12 @@ export default function Signup() {
                         accept=".jpeg, .jpg, .png"
                         onChange={handleFile}
                     />
+                    {
+                        msg === "" ?
+                        null:
+                        <><span>{msg}</span></>
+                    }
+                    <a href="/login">Already have an account?</a>
                     <button onClick={submit}>Submit</button>
                 </form>
             </div>
