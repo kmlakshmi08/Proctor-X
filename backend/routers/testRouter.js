@@ -11,6 +11,18 @@ router.get("/", async (req, res) => {
     }
 });
 
+router.get("/gettestbyID", async (req, res) => {
+    const id = req.query.id
+    try {
+        console.log("Request : ",req)
+        console.log("Request query : ",id)
+        const tests = await Test.findOne({_id : id});
+        res.status(200).json(tests);
+    } catch (error) {
+        res.status(500).send("Error fetching tests.");
+    }
+});
+
 router.post("/addtest", async (req, res) => {
     try {
         const { testName, subject, questions } = req.body;

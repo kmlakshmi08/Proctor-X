@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     photo:{
         type:String,
         required:false
-    },
+    }
 });
 
 module.exports = mongoose.model("usersignup", userSchema);

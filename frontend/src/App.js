@@ -8,7 +8,8 @@ import Home from "./pages/Home.jsx";
 import Tests from "./pages/Tests.jsx";
 import Signup from "./pages/Signup.jsx"
 import Login from "./pages/Login.jsx";
-import Navbar from "./pages/Navbar.jsx";
+import Asessment from "./pages/Asessment.jsx";
+
 import "./App.css"
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                             <Route path="/login" element={<Login />}></Route>
                             <Route path="/tests" element={<Tests />}></Route>
                             <Route path="/home" element={<Home />}></Route>
+                            <Route path="/asessment" element={<Asessment />}></Route>
                         </Routes>
                     </BrowserRouter>
                 </PersistGate>
