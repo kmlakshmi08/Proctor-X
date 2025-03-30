@@ -5,7 +5,8 @@ import { Provider } from "react-redux"
 import Camera from "./pages/Camera.jsx";
 import { Persistor, store } from "./reducer.js";
 import Home from "./pages/Home.jsx";
-import Login from "./pages/Login.jsx"
+import Signup from "./pages/Signup.jsx"
+import Login from "./pages/Login.jsx";
 
 function App() {
     return (
@@ -15,7 +16,8 @@ function App() {
                     <BrowserRouter>
                         <Routes>
                             <Route path="/camera" element={<Camera />}></Route>
-                            <Route path="/" element={<Login />}></Route>
+                            <Route path="/" element={<Signup />}></Route>
+                            <Route path="/login" element={<Login />}></Route>
                             <Route path="/home" element={<Home />}></Route>
                         </Routes>
                     </BrowserRouter>
