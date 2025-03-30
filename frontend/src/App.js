@@ -5,6 +5,7 @@ import { Provider } from "react-redux"
 import Camera from "./pages/Camera.jsx";
 import { Persistor, store } from "./reducer.js";
 import Home from "./pages/Home.jsx";
+import Tests from "./pages/Tests.jsx";
 import Signup from "./pages/Signup.jsx"
 import Login from "./pages/Login.jsx";
 import Navbar from "./pages/Navbar.jsx";
@@ -19,6 +20,7 @@ function App() {
                             <Route path="/camera" element={<Camera />}></Route>
                             <Route path="/" element={<Signup />}></Route>
                             <Route path="/login" element={<Login />}></Route>
+                            <Route path="/tests" element={<Tests />}></Route>
                             <Route path="/home" element={<Home />}></Route>
                         </Routes>
                     </BrowserRouter>
