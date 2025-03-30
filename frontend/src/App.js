@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Provider } from "react-redux"
 import Camera from "./pages/Camera.jsx";
 import { Persistor, store } from "./reducer.js";
-import Navbar from "./pages/Navbar.jsx";
 import Home from "./pages/Home.jsx";
+import Login from "./pages/Login.jsx"
 
 function App() {
     return (
@@ -13,10 +13,10 @@ function App() {
             <Provider store={store}>
                 <PersistGate loading={null} persistor={Persistor}>
                     <BrowserRouter>
-                    <Navbar/>
                         <Routes>
                             <Route path="/camera" element={<Camera />}></Route>
-                            <Route path="/" element={<Home />}></Route>
+                            <Route path="/" element={<Login />}></Route>
+                            <Route path="/home" element={<Home />}></Route>
                         </Routes>
                     </BrowserRouter>
                 </PersistGate>

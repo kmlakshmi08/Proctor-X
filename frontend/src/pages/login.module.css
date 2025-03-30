@@ -1,0 +1,22 @@
+.signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+.singupform{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.singupform input{
+    width: 100%;
+}
+
+.singupform span{
+    color: red;
+}

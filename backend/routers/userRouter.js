@@ -14,9 +14,10 @@ router.get('/', async (req, res) => {
 router.post('/adduser', async (req, res) => {
     try {
         const { username, password, photo } = req.body;
-
+        console.log("Requested new user to be added : ",req.body)
         const existingUser = await userSchema.findOne({ username });
         if (existingUser) {
+            console.log("User already exists");
             return res.status(400).json({ error: "User already exists" });
         }
 
@@ -27,9 +28,11 @@ router.post('/adduser', async (req, res) => {
         });
         
         const result = await newUser.save();
+        console.log(result);
         return res.status(201).json({ message: "User created successfully", user: result });
 
     } catch (error) {
+        console.log(error)
         res.status(500).json({ error: error });
     }
 });
