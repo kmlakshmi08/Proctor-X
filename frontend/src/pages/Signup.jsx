@@ -28,7 +28,6 @@ export default function Signup() {
                 return
             }
             const result = await axios.post(url, formdata)
-            console.log(result)
             if(result.data.message){
                 navigate("/home")
             }
@@ -37,6 +36,8 @@ export default function Signup() {
             }
         }
         catch (err) {
+            console.log("Status code : ",err.status)
+            setMsg("Please upload an image smaller than 100kb.")
             console.error(err)
         }
     }

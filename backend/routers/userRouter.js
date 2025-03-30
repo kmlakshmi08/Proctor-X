@@ -11,6 +11,16 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/getuserbyid', async (req, res) => {
+    const {username} = req.query;
+    try {
+        const data = await userSchema.findOne({username});
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).send("Error in finding user data.");
+    }
+});
+
 router.post('/adduser', async (req, res) => {
     try {
         const { username, password, photo } = req.body;

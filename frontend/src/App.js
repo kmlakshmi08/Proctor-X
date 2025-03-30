@@ -7,7 +7,8 @@ import { Persistor, store } from "./reducer.js";
 import Home from "./pages/Home.jsx";
 import Signup from "./pages/Signup.jsx"
 import Login from "./pages/Login.jsx";
-
+import Navbar from "./pages/Navbar.jsx";
+import "./App.css"
 function App() {
     return (
         <>
