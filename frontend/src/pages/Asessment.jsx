@@ -53,7 +53,6 @@ export default function Asessment() {
                                                     </span>
                                                 ))
                                             }
-                                            {question._id}
                                         </div>
                                     ))
                                 }

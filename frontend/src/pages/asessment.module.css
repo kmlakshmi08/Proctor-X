@@ -1,5 +1,4 @@
 .box:nth-child(1){
-    background-color: skyblue;
     width: 70%;
 }
 .box:nth-child(2){
