@@ -41,7 +41,6 @@ const Camera = () => {
         body: JSON.stringify({ image: imageData }),
       });
       const result = await response.json();
-      console.log("Results : ", result)
       setFaceDetected(result.face_detected);
       setEyeDetected(result.eye_detected);
     } catch (error) {

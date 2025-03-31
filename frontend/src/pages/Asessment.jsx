@@ -84,7 +84,7 @@ export default function Asessment() {
 }
 
 
-
+// QUESTION DUMMY OBJECT : 
 // {
 //     "testName": "Math Test 2",
 //     "subject": "Mathematics",
@@ -97,4 +97,23 @@ export default function Asessment() {
 //         }
 //     ],
 //     _id : "67e803a39e6c4251f7881af2"
+// }
+
+// ANSWERSCRIPT DUMMY OBJECT :
+// {
+//     "67e803a39e6c4251f7881af3": "Central Performance Unit"
+//     "67e803a39e6c4251f7881af5": "Linked List"
+//     "67e803a39e6c4251f7881af6": "Java"
+//     "67e803a39e6c4251f7881af7": "High Tech Machine Language"
+//     "67e803a39e6c4251f7881af8": "JavaScript"
+//     "67e803a39e6c4251f7881af9": "Remote Access Memory"
+//     "67e803a39e6c4251f7881afa": "MySQL"
+//     "67e803a39e6c4251f7881afb": "Running antivirus software"
+//     "67e803a39e6c4251f7881afc": "Python"
+//     "67e803a39e6c4251f7881afd": "OR"
+//     "67e803a39e6c4251f7881afe": "Sun Microsystems"
+//     "67e803a39e6c4251f7881aff": "HTTP"
+//     "67e803a39e6c4251f7881b00": "System Query Language"
+//     "67e803a39e6c4251f7881b01": "Oracle"
+//     "67e803a39e6c4251f7881b02": "Dynamic Network S 
 // }
