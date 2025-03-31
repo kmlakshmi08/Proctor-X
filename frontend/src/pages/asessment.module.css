@@ -8,3 +8,73 @@
     flex-direction: column;
     margin-top: 30px;
 }
+
+.question input{
+    margin-right: 10px;
+}
+
+.mainbox button{
+    margin-top: 60px;
+    background-color: green;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 1.1rem;
+    transition: all 0.5s ease;
+    border-radius: 5px;
+}
+.mainbox button:hover{
+    background-color: rgb(2, 82, 2);
+    cursor: pointer;
+}
+
+
+.popup{
+    position: fixed;
+    top: 0px;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup section{
+    background-color: white;
+    color: black;
+    height: 400px;
+    width: 600px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup section div{
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.popup section div button{
+    width: 50%;
+    padding: 10px 0px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+.popup section div button:hover{
+    cursor: pointer;
+}
+.popup section div button:nth-child(1){
+    background-color: red;
+}
+.popup section div button:nth-child(2){
+    background-color: green;
+}
