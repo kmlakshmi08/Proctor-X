@@ -26,7 +26,7 @@ const Camera = () => {
   const captureImage = () => {
     if (canvasRef.current && videoRef.current) {
       const context = canvasRef.current.getContext("2d");
-      context.drawImage(videoRef.current, 0, 0, 640, 480);
+      context.drawImage(videoRef.current, 0, 0, 400, 300);
       const imageData = canvasRef.current.toDataURL("image/png");
       sendToBackend(imageData);
     }
@@ -50,8 +50,8 @@ const Camera = () => {
 
   return (
     <div className="flex flex-col items-center space-y-4">
-      <video ref={videoRef} autoPlay className="rounded-lg shadow-lg w-80 h-60" />
-      <canvas ref={canvasRef} width={640} height={480} hidden />
+      <video ref={videoRef} autoPlay width="400" height="300" className="rounded-lg shadow-lg w-70 h-50" />
+      <canvas ref={canvasRef} width={400} height={300} hidden />
       <div className="text-lg font-bold">
         {faceDetected ? "Face Detected" : "No Face Detected"}
       </div>

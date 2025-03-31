@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import styles from "./asessment.module.css";
 import Progress from "../global_components/Progress";
+import Camera from "./Camera"
 
 export default function Asessment() {
     const [test, setTest] = useState(null);
@@ -14,11 +15,11 @@ export default function Asessment() {
         e.preventDefault()
         setPopup(true)
     }
-    const handleUpdate = (id,answer) => {
+    const handleUpdate = (id, answer) => {
         const answers = answerScript;
         answers[id] = answer
         setAnswerScript(answers)
-        console.log("Answer script : ",answers)
+        console.log("Answer script : ", answers)
     }
     useEffect(() => {
         async function fetchtest() {
@@ -32,33 +33,38 @@ export default function Asessment() {
     }, [])
     return (
         <>
-            {
-                test ?
-                    <>
-                        <form onSubmit={submit} className={styles.mainbox}>
-                            <center><h1>{test.testName}</h1></center>
-                            <center><h3>Subject : {test.subject}</h3></center>
-                            {
-                                test.questions.map((question, key) => (
-                                    <div className={styles.question}>
-                                        <p>{question.question}</p>
-                                        {
-                                            question.options.map((option) => (
-                                                <span>
-                                                    <label>
-                                                        <input type="radio" name={`question${key}`} value={option} onClick={()=>{handleUpdate(question._id,option)}}/>{option}
-                                                    </label>
-                                                </span>
-                                            ))
-                                        }
-                                        {question._id}
-                                    </div>
-                                ))
-                            }
-                            <button type="submit">Submit</button>
-                        </form>
-                    </> : null
-            }
+            <div className={styles.box}>
+                {
+                    test ?
+                        <>
+                            <form onSubmit={submit} className={styles.mainbox}>
+                                <center><h1>{test.testName}</h1></center>
+                                <center><h3>Subject : {test.subject}</h3></center>
+                                {
+                                    test.questions.map((question, key) => (
+                                        <div className={styles.question}>
+                                            <p>{question.question}</p>
+                                            {
+                                                question.options.map((option) => (
+                                                    <span>
+                                                        <label>
+                                                            <input type="radio" name={`question${key}`} value={option} onClick={() => { handleUpdate(question._id, option) }} />{option}
+                                                        </label>
+                                                    </span>
+                                                ))
+                                            }
+                                            {question._id}
+                                        </div>
+                                    ))
+                                }
+                                <button type="submit">Submit</button>
+                            </form>
+                        </> : null
+                }
+            </div>
+            <div className={styles.box}>
+                <Camera></Camera>
+            </div>
             {
                 popup === true ?
                     <div className={styles.popup}>

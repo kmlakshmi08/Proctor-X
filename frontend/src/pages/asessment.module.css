@@ -1,3 +1,13 @@
+.box:nth-child(1){
+    background-color: skyblue;
+    width: 70%;
+}
+.box:nth-child(2){
+    position: fixed;
+    right: 0px;
+    top: 0px;
+}
+
 .mainbox{
     display: flex;
     flex-direction: column;
