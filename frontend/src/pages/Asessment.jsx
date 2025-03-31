@@ -6,11 +6,15 @@ import styles from "./asessment.module.css";
 export default function Asessment() {
     const [test, setTest] = useState(null);
     const [popup, setPopup] = useState(false);
-    const [answerScript,setAnswerScript] = useState([])
+    const [answerScript, setAnswerScript] = useState([])
     const [search] = useSearchParams();
+
     const submit = (e) => {
         e.preventDefault()
         setPopup(true)
+    }
+    const handleUpdate = () => {
+
     }
     useEffect(() => {
         async function fetchtest() {
@@ -77,7 +81,9 @@ export default function Asessment() {
 //         {
 //             "question": "What is 15 + 7?",
 //             "options": ["20", "21", "22", "23"],
-//             "correctAnswer": "22"
+//             "correctAnswer": "22",
+//              "_id" : "67e803a39e6c4251f7881af3"
 //         }
-//     ]
+//     ],
+//     _id : "67e803a39e6c4251f7881af2"
 // }
