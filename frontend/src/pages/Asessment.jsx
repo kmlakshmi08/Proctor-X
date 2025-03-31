@@ -2,19 +2,23 @@ import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import styles from "./asessment.module.css";
+import Progress from "../global_components/Progress";
 
 export default function Asessment() {
     const [test, setTest] = useState(null);
     const [popup, setPopup] = useState(false);
-    const [answerScript, setAnswerScript] = useState([])
+    const [answerScript, setAnswerScript] = useState({})
     const [search] = useSearchParams();
 
     const submit = (e) => {
         e.preventDefault()
         setPopup(true)
     }
-    const handleUpdate = () => {
-
+    const handleUpdate = (id,answer) => {
+        const answers = answerScript;
+        answers[id] = answer
+        setAnswerScript(answers)
+        console.log("Answer script : ",answers)
     }
     useEffect(() => {
         async function fetchtest() {
@@ -42,11 +46,12 @@ export default function Asessment() {
                                             question.options.map((option) => (
                                                 <span>
                                                     <label>
-                                                        <input type="radio" name={`question${key}`} value={option} />{option}
+                                                        <input type="radio" name={`question${key}`} value={option} onClick={()=>{handleUpdate(question._id,option)}}/>{option}
                                                     </label>
                                                 </span>
                                             ))
                                         }
+                                        {question._id}
                                     </div>
                                 ))
                             }
@@ -59,8 +64,9 @@ export default function Asessment() {
                     <div className={styles.popup}>
                         <section>
                             <h1>Done with the test?</h1>
+                            <Progress totalquestions={test.questions.length} answerlength={Object.keys(answerScript).length} />
                             <p>Are you sure to submit your test?</p>
-                            <div>
+                            <div className={styles.buttons}>
                                 <button onClick={() => { setPopup(false) }}>Cancel</button>
                                 <button>Submit</button>
                             </div>

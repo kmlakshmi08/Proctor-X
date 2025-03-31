@@ -55,13 +55,13 @@
     justify-content: center;
 }
 
-.popup section div{
+.buttons{
     width: 200px;
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
-.popup section div button{
+.buttons button{
     width: 50%;
     padding: 10px 0px;
     outline: none;
@@ -69,12 +69,12 @@
     border-radius: 5px;
     color: white;
 }
-.popup section div button:hover{
+.buttons button:hover{
     cursor: pointer;
 }
-.popup section div button:nth-child(1){
+.buttons button:nth-child(1){
     background-color: red;
 }
-.popup section div button:nth-child(2){
+.buttons button:nth-child(2){
     background-color: green;
 }
