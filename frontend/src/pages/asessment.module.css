@@ -1,0 +1,10 @@
+.mainbox{
+    display: flex;
+    flex-direction: column;
+    padding: 100px 200px;
+}
+.question{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
