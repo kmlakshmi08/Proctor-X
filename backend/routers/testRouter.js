@@ -40,4 +40,27 @@ router.post("/addtest", async (req, res) => {
     }
 });
 
+router.post("/evaluate", async (req, res) => {
+    try {
+        const { testId, answers } = req.body; 
+
+        const test = await Test.findById(testId);
+
+        let score = 0;
+        let totalQuestions = test.questions.length;
+        test.questions.forEach((question) => {
+            if (answers[question._id] === question.correctAnswer) {
+                score++;
+            }
+        });
+
+        res.status(200).json({
+            message: "Evaluation completed.",
+            score,
+        });
+    } catch (error) {
+        res.status(500).send("Error evaluating answers.");
+    }
+});
+
 module.exports = router;
