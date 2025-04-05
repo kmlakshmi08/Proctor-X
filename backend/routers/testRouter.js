@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Test = require("../models/testSchema");
+const Report = require("../models/userTestSchema");
 
 router.get("/", async (req, res) => {
     try {
@@ -63,11 +64,23 @@ router.post("/evaluate", async (req, res) => {
     }
 });
 
+
 router.get("/getallReportsByUser", async (req, res) => {
+    const userId = req.query.userId;
+
+    if (!userId) {
+        return res.status(400).json({ message: "User ID is required." });
+    }
+
     try {
-        
+        const reports = await Report.find({ userId })
+            .populate("testId") 
+            .exec();
+
+        res.status(200).json(reports);
     } catch (error) {
-        res.status(500).send("Error evaluating answers.");
+        console.error("Error fetching reports:", error);
+        res.status(500).send("Error fetching reports for user.");
     }
 });
 
