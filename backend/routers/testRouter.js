@@ -63,4 +63,12 @@ router.post("/evaluate", async (req, res) => {
     }
 });
 
+router.get("/getallReportsByUser", async (req, res) => {
+    try {
+        
+    } catch (error) {
+        res.status(500).send("Error evaluating answers.");
+    }
+});
+
 module.exports = router;
