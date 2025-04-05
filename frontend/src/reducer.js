@@ -1,20 +1,13 @@
 import storage from "redux-persist/lib/storage"
-import { combineReducers } from "redux"
-import captureReducer from "./store/Reducers/CaptureDetails"
-import { themeReducer } from "./store/Reducers/Theme"
 import { persistReducer,persistStore } from "redux-persist"
 import { configureStore } from "@reduxjs/toolkit"
+import { rootReducer } from "./store/store"
 
 const rootPersistConfig = {
     key: 'root',
     storage: storage,
-    whitelist: ['globalPersistReducer']
+    whitelist: ['userReducer','themeReducer',]
 }
-
-const rootReducer = combineReducers({
-    captureReducer: captureReducer,
-    themeReducer: themeReducer
-})
 
 const persistreducer = persistReducer(rootPersistConfig,rootReducer);
 

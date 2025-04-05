@@ -5,7 +5,6 @@ import { useSelector } from "react-redux"
 import * as actions from "../store/types"
 import ToggleSwitch from "../global_components/ToggleSwitch";
 
-
 export default function Navbar() {
     const theme = useSelector((state) => state.themeReducer.mode);
     return (

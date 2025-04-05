@@ -4,11 +4,13 @@ import Navbar from "./Navbar";
 import axios from "axios"
 import TestCard from "../global_components/TestCard";
 import * as img from "../img/index"
+import { useSelector } from "react-redux";
 
 const url = "http://localhost:3001/test/"
 
 export default function Tests() {
     const [tests, setTests] = useState(null)
+    const UserData = useSelector((state)=>state.userReducer)
 
     useEffect(() => {
         async function fetchuser() {
@@ -21,6 +23,7 @@ export default function Tests() {
     return (
         <>
             <Navbar></Navbar>
+            <h1>{UserData.username}</h1>
             <div className={styles.mainbox}>
                 <h1>List of all Tests</h1>
                 <div className={styles.testcontainer}>

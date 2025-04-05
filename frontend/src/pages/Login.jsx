@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import styles from "./login.module.css"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
-import * as img from "../img/index"
+import { useDispatch } from "react-redux";
+import * as actions from "../store/types"
 
 const url = "http://localhost:3001/login/userlogin"
 
 export default function Login() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [msg,setMsg] = useState("");
     const [formdata, setFormData] = useState({
         username: "",
@@ -21,6 +23,7 @@ export default function Login() {
                 setMsg(result.data.error);
             }
             else if(result.data?.message){
+                dispatch({type: actions.SETUSER,payload: {username: result.data.user.username, photo: result.data.user.photo}})
                 navigate("/home")
             }
             console.log(result)

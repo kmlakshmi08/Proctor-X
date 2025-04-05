@@ -4,12 +4,14 @@ import React, { useEffect, useState } from "react";
 import styles from "./asessment.module.css";
 import Progress from "../global_components/Progress";
 import Camera from "./Camera"
+import { useSelector } from "react-redux";
 
 export default function Asessment() {
     const [test, setTest] = useState(null);
     const [popup, setPopup] = useState(false);
     const [answerScript, setAnswerScript] = useState({})
     const [search] = useSearchParams();
+    const UserData = useSelector((state)=>state.userReducer)
 
     const submit = (e) => {
         e.preventDefault()
@@ -34,6 +36,7 @@ export default function Asessment() {
     return (
         <>
             <div className={styles.box}>
+            <h1>{UserData.username}</h1>
                 {
                     test ?
                         <>
@@ -101,7 +104,7 @@ export default function Asessment() {
 
 // ANSWERSCRIPT DUMMY OBJECT :
 // {
-//     testID: "67e803a39e6c4251f7881af3",
+//     testID: "67e803a39e6c4251f7881af2",
 //     answers:{
 //         "67e803a39e6c4251f7881af3": "Central Performance Unit"
 //         "67e803a39e6c4251f7881af5": "Linked List"
