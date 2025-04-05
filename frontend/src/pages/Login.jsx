@@ -64,7 +64,7 @@ export default function Login() {
                             <img src={ShowPassword ? img.hide : img.view} alt="" /><h6>{ShowPassword ? "Hide" : "Show"} Password</h6>
                         </label>
                         <a href="/">Don't have an account yet?</a>
-                        <button onClick={submit}>Submit</button>
+                        <button onClick={submit}>Login</button>
                     </form>
                 </section>
             </div>

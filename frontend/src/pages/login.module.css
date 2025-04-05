@@ -73,13 +73,17 @@
 .singupform input:nth-child(5){
     display: none;
 }
-.label{
+.singupform label{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: start;
     width: 100%;
     gap: 10px;
+}
+.singupform label:nth-child(8) img{
+    height: 50px;
+    filter: none;
 }
 .label h6{
     font-weight: 300;

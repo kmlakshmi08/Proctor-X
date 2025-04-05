@@ -1,0 +1,41 @@
+.mainbox{
+    background: url("../img/404.png");
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mainbox:before{
+    content: "";
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    opacity: 50%;
+    position: absolute;
+}
+.box{
+    z-index: 100;
+    max-width: 600px;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap: 20px;
+}
+.box span{
+    margin-top: 200px;
+}
+.box a{
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    padding: 10px 20px;
+}
