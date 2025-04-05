@@ -68,9 +68,9 @@ export default function Signup() {
                 <section>
                     <form className={styles.singupform}>
                         <h1>Welcome</h1>
-                        <input placeholder="username" type="text" value={formdata.username} onChange={(e) => { handlechange(e, "username") }} />
-                        <input placeholder="password" type={ShowPassword? "text":"password"} value={formdata.password} onChange={(e) => { handlechange(e, "password") }} />
-                        <input placeholder="confirm password" type={ShowPassword? "text":"password"} value={formdata.confirmpassword} onChange={(e) => { handlechange(e, "confirmpassword") }} />
+                        <input placeholder="Username" type="text" value={formdata.username} onChange={(e) => { handlechange(e, "username") }} />
+                        <input placeholder="Password" type={ShowPassword? "text":"password"} value={formdata.password} onChange={(e) => { handlechange(e, "password") }} />
+                        <input placeholder="Confirm password" type={ShowPassword? "text":"password"} value={formdata.confirmpassword} onChange={(e) => { handlechange(e, "confirmpassword") }} />
                         <input
                             type="file"
                             lable="Image"
