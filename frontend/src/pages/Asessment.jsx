@@ -36,7 +36,6 @@ export default function Asessment() {
     return (
         <>
             <div className={styles.box}>
-            <h1>{UserData.username}</h1>
                 {
                     test ?
                         <>

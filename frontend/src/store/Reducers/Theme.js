@@ -6,7 +6,7 @@ const initState = {
 
 export const themeReducer = (state = initState, action) => {
     switch (action.type) {
-        case act.CHANGETHEME: return { mode: (state.mode === "light" ? "dark" : "light") }
-        default: return initState;
+        case act.CHANGETHEME: return { ...state, mode: (state.mode === "light" ? "dark" : "light") }
+        default: return state;
     }
 }

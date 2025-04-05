@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 import base64
 from flask_cors import CORS
+import datetime
 
 app = Flask(__name__)
 CORS(app)
@@ -30,7 +31,7 @@ def detect_face_and_eyes(image_data):
         if len(eyes) > 0:
             eye_detected = True
 
-    return {"face_detected": num_faces > 0, "eye_detected": eye_detected, "num_faces": num_faces}
+    return {"face_detected": num_faces > 0, "eye_detected": eye_detected, "num_faces": num_faces, "time": datetime.datetime.now()}
 
 @app.route('/upload', methods=['POST'])
 def upload():

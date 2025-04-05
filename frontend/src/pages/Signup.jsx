@@ -10,6 +10,7 @@ const url = "http://localhost:3001/login/adduser"
 export default function Signup() {
     const navigate = useNavigate();
     const [msg, setMsg] = useState("");
+    const [ShowPassword, setShowPassword] = useState(false);
     const [formdata, setFormData] = useState({
         username: "",
         password: "",
@@ -28,15 +29,15 @@ export default function Signup() {
                 return
             }
             const result = await axios.post(url, formdata)
-            if(result.data.message){
+            if (result.data.message) {
                 navigate("/home")
             }
-            else if(result.data.error){
+            else if (result.data.error) {
                 setMsg(result.data.error)
             }
         }
         catch (err) {
-            console.log("Status code : ",err.status)
+            console.log("Status code : ", err.status)
             setMsg("Please upload an image smaller than 100kb.")
             console.error(err)
         }
@@ -46,6 +47,9 @@ export default function Signup() {
             ...prevvalue,
             [type]: e.target.value
         }))
+    }
+    const handleShowPasswordChange = (e) => {
+        setShowPassword(e.target.checked)
     }
     useEffect(() => {
         console.log(formdata)
@@ -61,27 +65,36 @@ export default function Signup() {
     return (
         <>
             <div className={styles.signup}>
-                <form className={styles.singupform}>
-                    <h1>Welcome</h1>
-                    <input placeholder="username" type="text" value={formdata.username} onChange={(e) => { handlechange(e, "username") }} />
-                    <input placeholder="password" type="password" value={formdata.password} onChange={(e) => { handlechange(e, "password") }} />
-                    <input placeholder="confirm password" type="password" value={formdata.confirmpassword} onChange={(e) => { handlechange(e, "confirmpassword") }} />
-                    <input
-                        type="file"
-                        lable="Image"
-                        name="myFile"
-                        id="file-upload"
-                        accept=".jpeg, .jpg, .png"
-                        onChange={handleFile}
-                    />
-                    {
-                        msg === "" ?
-                        null:
-                        <><span>{msg}</span></>
-                    }
-                    <a href="/login">Already have an account?</a>
-                    <button onClick={submit}>Submit</button>
-                </form>
+                <section>
+                    <form className={styles.singupform}>
+                        <h1>Welcome</h1>
+                        <input placeholder="username" type="text" value={formdata.username} onChange={(e) => { handlechange(e, "username") }} />
+                        <input placeholder="password" type={ShowPassword? "text":"password"} value={formdata.password} onChange={(e) => { handlechange(e, "password") }} />
+                        <input placeholder="confirm password" type={ShowPassword? "text":"password"} value={formdata.confirmpassword} onChange={(e) => { handlechange(e, "confirmpassword") }} />
+                        <input
+                            type="file"
+                            lable="Image"
+                            name="myFile"
+                            id="file-upload"
+                            accept=".jpeg, .jpg, .png"
+                            onChange={handleFile}
+                        />
+                        <input type="checkbox" id="checkbox" onChange={handleShowPasswordChange} style={{display:"none"}}/>
+                        <label htmlFor="checkbox" className={styles.label}>
+                            <img src={ShowPassword? img.hide: img.view} alt="" /><h6>{ShowPassword? "Hide": "Show"} Password</h6>
+                        </label>
+                        <label htmlFor="file-upload">
+                            <p>Upload Profile Photo</p>
+                        </label>
+                        {
+                            msg === "" ?
+                                null :
+                                <><span>{msg}</span></>
+                        }
+                        <a href="/login">Already have an account?</a>
+                        <button onClick={submit}>Submit</button>
+                    </form>
+                </section>
             </div>
         </>
     )

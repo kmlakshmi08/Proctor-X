@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 
 const userTestSchema = new mongoose.Schema({
     userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "usersignup", // References the user
+        type: String,
+        ref: "usersignup",
         required: true
     },
     testId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "testquestions", // References the test
+        type: String,
+        ref: "testquestions",
         required: true
     },
     marksObtained: {
@@ -27,6 +27,6 @@ const userTestSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     }
-}, { timestamps: true });
+});
 
-module.exports = mongoose.model("userTest", userTestSchema);
+module.exports = mongoose.model("report", userTestSchema);

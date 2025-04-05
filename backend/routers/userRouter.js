@@ -26,7 +26,7 @@ router.post('/adduser', async (req, res) => {
         const { username, password, photo } = req.body;
         const existingUser = await userSchema.findOne({ username });
         if (existingUser) {
-            return res.status(200).json({ error: "User already exists" });
+            return res.status(400).json({ error: "User already exists" });
         }
 
         const newUser = new userSchema({
@@ -58,7 +58,7 @@ router.post("/userlogin", async (req, res) => {
             return res.status(200).json({ message: "Login successful", user });
         }
         else {
-            return res.status(200).json({ error: "Invalid password" });
+            return res.status(400).json({ error: "Invalid password" });
         }
     } catch (error) {
         res.status(500).json({ error: "Internal server error" });

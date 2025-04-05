@@ -7,7 +7,7 @@ const initstate = {
 
 export const UserReducer = (state = initstate,action)=>{
     switch(action.type){
-        case act.SETUSER: return{ username: action.payload.username,photo: action.payload.photo }
-        default: return initstate;
+        case act.SETUSER: return{ ...state, username: action.payload.username,photo: action.payload.photo }
+        default: return state;
     }
 }

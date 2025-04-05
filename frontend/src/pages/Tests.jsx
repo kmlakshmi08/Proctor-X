@@ -23,7 +23,6 @@ export default function Tests() {
     return (
         <>
             <Navbar></Navbar>
-            <h1>{UserData.username}</h1>
             <div className={styles.mainbox}>
                 <h1>List of all Tests</h1>
                 <div className={styles.testcontainer}>

@@ -1,11 +1,24 @@
-.signup{
+.signup {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     width: 100vw;
+    background: linear-gradient(45deg, #002C6B, #5BBCEF);
 }
-.singupform{
+
+.signup section {
+    padding: 70px 100px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.508);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.singupform {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,11 +26,66 @@
     gap: 10px;
     width: 350px;
 }
-
+.singupform button,
 .singupform input{
     width: 100%;
+    padding: 10px 20px;
 }
 
-.singupform span{
-    color: red;
+.singupform button{
+    background-color: rgb(10, 90, 218);
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    border: none;
+    transition: all 0.5s ease;
+}
+.singupform button:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+.singupform a{
+    color: white;
+    font-size: 0.8rem;
+}
+.singupform input{
+    background-color: transparent;
+    color: white;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.217);
+}
+.singupform span {
+    color: rgb(255, 107, 87);
+}
+.singupform p{
+    background-color: transparent;
+    font-size: 0.8rem;
+    padding: 10px 30px;
+    border: 2px solid rgba(255, 255, 255, 0.418);
+    transition: all 0.5s ease;
+}
+.singupform p:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+.singupform input:nth-child(5){
+    display: none;
+}
+.label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    gap: 10px;
+}
+.label h6{
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+.singupform label img{
+    height: 20px;
+    filter: invert();
 }
