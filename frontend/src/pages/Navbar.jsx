@@ -12,11 +12,12 @@ export default function Navbar() {
             <div className={styles.navbar}>
                 <div className={styles.navitem}>
                     <img src={img.proctoringimg} alt="" />
-                    <h3>Online Proctoring System.</h3>
+                    <h3 className={styles.logoText}>Online Proctoring System</h3> 
                 </div>
                 <div className={styles.navitem}>
                     <ul>
                         <li><a href="/home">Home</a></li>
+                        <li><a href="/profile">Profile</a></li>
                         <li><a href="/tests">Tests</a></li>
                         <li><a href="/reports">Reports</a></li>
                         <li>

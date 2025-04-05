@@ -7,6 +7,7 @@ import Home from "./pages/Home.jsx";
 import Tests from "./pages/Tests.jsx";
 import Signup from "./pages/Signup.jsx"
 import Login from "./pages/Login.jsx";
+import Profile from "./pages/Profile.jsx"
 import Asessment from "./pages/Asessment.jsx";
 import PageNotFound from "./pages/PageNotFound.jsx";
 
@@ -22,6 +23,7 @@ function App() {
                             <Route path="/login" element={<Login />}></Route>
                             <Route path="/tests" element={<Tests />}></Route>
                             <Route path="/home" element={<Home />}></Route>
+                            <Route path="/profile" element={<Profile />}></Route>
                             <Route path="/asessment" element={<Asessment />}></Route>
                             <Route path="*" element={<PageNotFound />}></Route>
                         </Routes>

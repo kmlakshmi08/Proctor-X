@@ -1,6 +1,97 @@
-.mainbox{
-    
+.mainbox {
+    background-color: #0f172a;
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
 }
-.box{
 
+.heroSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 60px 20px;
+}
+
+.left {
+    flex: 1;
+    padding-right: 40px;
+    min-width: 300px;
+}
+
+.right {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.right img {
+    max-width: 100%;
+    height: auto;
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Huge animated text */
+.burstText {
+    font-size: 4.5rem;
+    color: #38bdf8;
+    animation: burstIn 1s ease-in-out;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+
+/* Paragraph styling */
+.left p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+/* Contact section */
+.contact {
+    border-top: 1px solid #475569;
+    padding-top: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.contact h3 {
+    color: #facc15;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+}
+.burstText {
+    font-size: 4.5rem;
+    color: #38bdf8;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #38bdf8;
+    width: fit-content;
+    animation: typing 3s steps(30, end), blinkCursor 0.75s step-end infinite;
+}
+
+/* Typewriter animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blinkCursor {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #38bdf8;
+    }
 }

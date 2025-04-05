@@ -3,12 +3,18 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: #0f172a;
+    min-height: 100vh;
 }
-
+h1{
+    color: white;
+}
 .testcontainer{
     margin-top: 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
+    color: white;
+    
 }

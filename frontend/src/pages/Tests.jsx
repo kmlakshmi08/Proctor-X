@@ -24,7 +24,7 @@ export default function Tests() {
         <>
             <Navbar></Navbar>
             <div className={styles.mainbox}>
-                <h1>List of all Tests</h1>
+                <h1>Available Tests</h1>
                 <div className={styles.testcontainer}>
                     {
                         Array.isArray(tests) && tests.map((test) => (
