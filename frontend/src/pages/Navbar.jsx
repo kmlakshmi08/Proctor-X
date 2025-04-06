@@ -9,10 +9,10 @@ export default function Navbar() {
     const theme = useSelector((state) => state.themeReducer.mode);
     return (
         <>
-            <div className={styles.navbar}>
+            <div className={styles.navbar} data-theme={`${theme === "light" ? "": "dark"}`}>
                 <div className={styles.navitem}>
                     <img src={img.proctoringimg} alt="" />
-                    <h3 className={styles.logoText}>Online Proctoring System</h3> 
+                    <h3 className={styles.logoText}>ProctorX</h3>
                 </div>
                 <div className={styles.navitem}>
                     <ul>
