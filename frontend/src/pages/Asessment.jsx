@@ -3,26 +3,57 @@ import { useSearchParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import styles from "./asessment.module.css";
 import Progress from "../global_components/Progress";
-import Camera from "./Camera"
 import { useSelector } from "react-redux";
+import QuestionBox from "../global_components/QuestionBox";
+import Camera from "./Camera"
+import * as img from "../img/index"
 
 export default function Asessment() {
     const [test, setTest] = useState(null);
     const [popup, setPopup] = useState(false);
     const [answerScript, setAnswerScript] = useState({})
     const [search] = useSearchParams();
-    const UserData = useSelector((state)=>state.userReducer)
+    const [timeLeft, setTimeLeft] = useState(60 * 30);
+    const [timer, setTimer] = useState("00:30:00");
+    const UserData = useSelector((state) => state.userReducer)
 
     const submit = (e) => {
         e.preventDefault()
         setPopup(true)
     }
-    const handleUpdate = (id, answer) => {
-        const answers = answerScript;
-        answers[id] = answer
-        setAnswerScript(answers)
-        console.log("Answer script : ", answers)
-    }
+    const formatTime = (secs) => {
+        const hrs = String(Math.floor(secs / 3600)).padStart(2, "0");
+        const mins = String(Math.floor((secs % 3600) / 60)).padStart(2, "0");
+        const secsPart = String(secs % 60).padStart(2, "0");
+        return `${hrs}:${mins}:${secsPart}`;
+    };
+
+    useEffect(() => {
+        setTimer(formatTime(timeLeft)); // initial set
+
+        if (timeLeft <= 0) return;
+
+        const interval = setInterval(() => {
+            setTimeLeft((prev) => {
+                if (prev <= 1) {
+                    clearInterval(interval);
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+
+        return () => clearInterval(interval); // cleanup
+    }, []);
+
+    useEffect(() => {
+        setTimer(formatTime(timeLeft));
+    }, [timeLeft]);
+
+    useEffect(() => {
+        console.log("Answer script updated to : ", answerScript)
+    }, [answerScript])
+
     useEffect(() => {
         async function fetchtest() {
             const id = search.get("id")
@@ -36,6 +67,36 @@ export default function Asessment() {
     return (
         <>
             <div className={styles.box}>
+                <section>
+                    <img src={img.proctoringimg} alt="" />
+                    <h2>ProctorX</h2>
+                </section>
+                {
+                    test ?
+                        <div>
+                            <span>{test.subject}</span>
+                            <p>{test.testName}</p>
+                        </div> : null
+                }
+                <div>
+                    <span>Time Left</span>
+                    <p>{timer}</p>
+                </div>
+                <div>
+                    <span>Questions : </span>
+                    <frame>
+                        {
+                            test ? (
+                                test.questions.map((question, key) => (
+                                    <a href={`#${question._id}`} className={`${answerScript[question._id] === undefined ? "" : styles.answered}`}>
+                                        {(key + 1)}
+                                    </a>
+                                ))) : null
+                        }
+                    </frame>
+                </div>
+            </div >
+            <div className={styles.box}>
                 {
                     test ?
                         <>
@@ -44,18 +105,12 @@ export default function Asessment() {
                                 <center><h3>Subject : {test.subject}</h3></center>
                                 {
                                     test.questions.map((question, key) => (
-                                        <div className={styles.question}>
-                                            <p>{question.question}</p>
-                                            {
-                                                question.options.map((option) => (
-                                                    <span>
-                                                        <label>
-                                                            <input type="radio" name={`question${key}`} value={option} onClick={() => { handleUpdate(question._id, option) }} />{option}
-                                                        </label>
-                                                    </span>
-                                                ))
-                                            }
-                                        </div>
+                                        <QuestionBox
+                                            question={question}
+                                            questionNo={(key + 1)}
+                                            answerScript={answerScript}
+                                            setAnswerScript={setAnswerScript}
+                                        />
                                     ))
                                 }
                                 <button type="submit">Submit</button>
@@ -63,9 +118,9 @@ export default function Asessment() {
                         </> : null
                 }
             </div>
-            <div className={styles.box}>
+            {/* <div className={styles.box}>
                 <Camera></Camera>
-            </div>
+            </div> */}
             {
                 popup === true ?
                     <div className={styles.popup}>
@@ -86,7 +141,7 @@ export default function Asessment() {
 }
 
 
-// QUESTION DUMMY OBJECT : 
+// QUESTION DUMMY OBJECT :
 // {
 //     "testName": "Math Test 2",
 //     "subject": "Mathematics",
@@ -104,6 +159,7 @@ export default function Asessment() {
 // ANSWERSCRIPT DUMMY OBJECT :
 // {
 //     testID: "67e803a39e6c4251f7881af2",
+//     userId: "Toshan7"
 //     answers:{
 //         "67e803a39e6c4251f7881af3": "Central Performance Unit"
 //         "67e803a39e6c4251f7881af5": "Linked List"
