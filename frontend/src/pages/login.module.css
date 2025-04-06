@@ -45,6 +45,9 @@
     color: black;
     cursor: pointer;
 }
+.singupform h1{
+    color: white;
+}
 .singupform a{
     color: white;
     font-size: 0.8rem;

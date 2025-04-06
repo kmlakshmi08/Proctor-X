@@ -28,6 +28,9 @@
     color: white;
     gap: 20px;
 }
+.box h1{
+    color: white;
+}
 .box span{
     margin-top: 200px;
 }

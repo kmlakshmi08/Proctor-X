@@ -3,14 +3,13 @@ import styles from "./testpage.module.css"
 import Navbar from "./Navbar";
 import axios from "axios"
 import TestCard from "../global_components/TestCard";
-import * as img from "../img/index"
 import { useSelector } from "react-redux";
 
 const url = "http://localhost:3001/test/"
 
 export default function Tests() {
     const [tests, setTests] = useState(null)
-    const UserData = useSelector((state)=>state.userReducer)
+    const theme = useSelector((state)=> state.themeReducer.mode)
 
     useEffect(() => {
         async function fetchuser() {
@@ -23,12 +22,12 @@ export default function Tests() {
     return (
         <>
             <Navbar></Navbar>
-            <div className={styles.mainbox}>
+            <div className={styles.mainbox} data-theme={`${theme === "light" ? "" : "dark"}`}>
                 <h1>Available Tests</h1>
                 <div className={styles.testcontainer}>
                     {
                         Array.isArray(tests) && tests.map((test) => (
-                            <TestCard test={test}/>
+                            <TestCard test={test} />
                         ))
                     }
                 </div>

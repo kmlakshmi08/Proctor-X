@@ -51,7 +51,7 @@ router.post("/evaluate", async (req, res) => {
         let totalQuestions = test.questions.length;
         test.questions.forEach((question) => {
             if (answers[question._id] === question.correctAnswer) {
-                score++;
+                score++;    
             }
         });
 
@@ -66,7 +66,7 @@ router.post("/evaluate", async (req, res) => {
 
 
 router.get("/getallReportsByUser", async (req, res) => {
-    const userId = req.query.userId;
+    const userId = req.body.userId;
 
     if (!userId) {
         return res.status(400).json({ message: "User ID is required." });
