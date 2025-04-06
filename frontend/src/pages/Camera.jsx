@@ -1,11 +1,23 @@
 import React, { useRef, useState, useEffect } from "react";
-import styles from "./camera.module.css"
+import styles from "./camera.module.css";
 
 const Camera = () => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  const [faceDetected, setFaceDetected] = useState(false);
-  const [eyeDetected, setEyeDetected] = useState(false);
+
+  // New state to hold all response data
+  const [detectionData, setDetectionData] = useState({
+    banned_objects: [],
+    banned_objects_detected: false,
+    eye_detected: false,
+    face_detected: false,
+    face_match: false,
+    gaze_direction: "",
+    head_pose: "",
+    mouth_open: false,
+    num_faces: 0,
+    time: "",
+  });
 
   useEffect(() => {
     const startCamera = async () => {
@@ -20,8 +32,8 @@ const Camera = () => {
     };
     startCamera();
 
-    const interval = setInterval(captureImage, 500); // Capture every 2 seconds
-    // return () => clearInterval(interval);
+    const interval = setInterval(captureImage, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   const captureImage = () => {
@@ -41,9 +53,8 @@ const Camera = () => {
         body: JSON.stringify({ image: imageData }),
       });
       const result = await response.json();
-      console.log("response : ",result)
-      setFaceDetected(result.face_detected);
-      setEyeDetected(result.eye_detected);
+      console.log("response : ", result);
+      setDetectionData(result); // Save all response data
     } catch (error) {
       console.error("Error sending image: ", error);
     }
@@ -51,15 +62,22 @@ const Camera = () => {
 
   return (
     <>
-      <div className={`flex flex-col items-center space-y-4 ${styles.camera} ${faceDetected === true ? styles.faceDetected : null}`}>
+      <div className={`flex flex-col items-center space-y-4 ${styles.camera} ${detectionData.face_detected ? styles.faceDetected : ""}`}>
         <video ref={videoRef} autoPlay width="400" height="300" className="rounded-lg shadow-lg w-70 h-50" />
         <canvas ref={canvasRef} width={400} height={300} hidden />
       </div>
-      <div className="text-lg font-bold">
-        {faceDetected ? "Face Detected" : "No Face Detected"}
-      </div>
-      <div className="text-lg font-bold">
-        {eyeDetected ? "Eyes Detected" : "No Eyes Detected"}
+
+      <div className="mt-4 space-y-2 text-left text-lg font-medium">
+        <div>Face Detected: {detectionData.face_detected ? "Yes" : "No"}</div>
+        <div>Eye Detected: {detectionData.eye_detected ? "Yes" : "No"}</div>
+        <div>Face Match: {detectionData.face_match ? "Yes" : "No"}</div>
+        <div>Gaze Direction: {detectionData.gaze_direction || "Unknown"}</div>
+        <div>Head Pose: {detectionData.head_pose || "Unknown"}</div>
+        <div>Mouth Open: {detectionData.mouth_open ? "Yes" : "No"}</div>
+        <div>Number of Faces: {detectionData.num_faces}</div>
+        <div>Banned Objects Detected: {detectionData.banned_objects_detected ? "Yes" : "No"}</div>
+        <div>Banned Objects: {detectionData.banned_objects.join(", ") || "None"}</div>
+        <div>Timestamp: {detectionData.time || "Not available"}</div>
       </div>
     </>
   );

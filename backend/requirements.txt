@@ -1,0 +1,8 @@
+cmake
+dlib
+face_recognition
+setuptools
+torch 
+torchvision
+opencv-python
+yolov5
