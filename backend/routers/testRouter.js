@@ -43,27 +43,59 @@ router.post("/addtest", async (req, res) => {
 
 router.post("/evaluate", async (req, res) => {
     try {
-        const { testId, answers } = req.body; 
+        const { testId, userId, answers, cheated = false } = req.body;
 
         const test = await Test.findById(testId);
+        if (!test) {
+            return res.status(404).json({ message: "Test not found" });
+        }
 
         let score = 0;
-        let totalQuestions = test.questions.length;
+        let answeredQuestions = 0;
+
         test.questions.forEach((question) => {
-            if (answers[question._id] === question.correctAnswer) {
-                score++;    
+            const userAnswer = answers[question._id];
+            if (userAnswer !== undefined && userAnswer !== null) {
+                answeredQuestions++;
+                if (userAnswer === question.correctAnswer) {
+                    score++;
+                }
             }
         });
 
-        res.status(200).json({
-            message: "Evaluation completed.",
-            score,
+        const report = new Report({
+            userId,
+            testId,
+            marksObtained: score,
+            totalMarks: test.questions.length,
+            answeredQuestions,
+            cheated
         });
+
+        const savedReport = await report.save();
+
+        res.status(200).json({
+            message: "Evaluation completed and report generated.",
+            report: savedReport,
+        });
+
     } catch (error) {
-        res.status(500).send("Error evaluating answers.");
+        console.error("Evaluation error:", error);
+        res.status(500).send("Error evaluating answers and generating report.");
     }
 });
 
+// {
+//     "testId": "67e803809e6c4251f7881adc",
+//     "userId": "67e8afe7c0c91bc1ec3a38d8",
+//     "answers": {
+//       "67e803809e6c4251f7881add": "4",
+//       "67e803809e6c4251f7881ade": "15",
+//       "67e803809e6c4251f7881adf": "3"
+//     },
+//     "cheated": false
+//   }
+  
 
 router.get("/getallReportsByUser", async (req, res) => {
     const userId = req.body.userId;
