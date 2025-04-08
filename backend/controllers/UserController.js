@@ -69,10 +69,27 @@ const userlogin = async (username, password) => {
     }
 }
 
+const deleteUserByUsername = async (username) => {
+    try {
+        const user = await userSchema.findOne({ username });
+        if (!user) {
+            throw new Error("User not found")
+        }
+        const deletedUser = await userSchema.deleteOne({ username });
+        return {
+            message: "User deleted successfully",
+            deletedUser: deletedUser
+        };
+    } catch (error) {
+        throw new Error(error.message || "Something went wrong while logging in.")
+    }
+}
+
 module.exports = {
     get,
     getuserbyname,
     adduser,
     getUserIdByUsername,
-    userlogin
+    userlogin,
+    deleteUserByUsername
 }
