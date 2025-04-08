@@ -22,7 +22,7 @@ export default function Login() {
         try {
             const result = await axios.post(url, formdata)
             if (result.data?.message) {
-                dispatch({ type: actions.SETUSER, payload: { username: result.data.user.username, photo: result.data.user.photo } })
+                dispatch({ type: actions.SETUSER, payload: { id: result.data.user._id, username: result.data.user.username, photo: result.data.user.photo } })
                 navigate("/home")
             }
             console.log(result)

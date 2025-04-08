@@ -1,67 +1,53 @@
 const express = require("express");
 const router = express.Router();
-const userSchema = require('../models/userSchema');
+const { UserController } = require("../controllers/index");
 
 router.get('/', async (req, res) => {
     try {
-        const data = await userSchema.find();
-        res.status(200).json(data);
-    } catch (error) {
-        res.status(500).send("Error in finding user data.");
+        const result = await UserController.get();
+        return res.status(200).json(result)
+    }
+    catch (err) {
+        return res.status(500).json({ error: err })
     }
 });
-
-router.get('/getuserbyid', async (req, res) => {
-    const {username} = req.query;
+router.get('/getuserbyname', async (req, res) => {
     try {
-        const data = await userSchema.findOne({username});
-        res.status(200).json(data);
-    } catch (error) {
-        res.status(500).send("Error in finding user data.");
+        const result = await UserController.getuserbyname(req.query.username);
+        return res.status(200).json(result)
+    }
+    catch (err) {
+        return res.status(500).json({ error: err })
     }
 });
-
 router.post('/adduser', async (req, res) => {
+    const { username, password, photo } = req.body;
     try {
-        const { username, password, photo } = req.body;
-        const existingUser = await userSchema.findOne({ username });
-        if (existingUser) {
-            return res.status(400).json({ error: "User already exists" });
-        }
-
-        const newUser = new userSchema({
-            username,
-            password,
-            photo
-        });
-        
-        const result = await newUser.save();
-        console.log(result);
-        return res.status(201).json({ message: "User created successfully", user: result });
-
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({ error: error });
+        const result = await UserController.adduser(username, password, photo);
+        return res.status(200).json(result)
+    }
+    catch (err) {
+        return res.status(500).json({ error: err.message })
     }
 });
-
-
 router.post("/userlogin", async (req, res) => {
     const { username, password } = req.body;
     try {
-        const user = await userSchema.findOne({ username });
-        if (!user) {
-            return res.status(400).json({ error: "User not found" });
-        }
-
-        if (password == user.password) {
-            return res.status(200).json({ message: "Login successful", user });
-        }
-        else {
-            return res.status(400).json({ error: "Invalid password" });
-        }
-    } catch (error) {
-        res.status(500).json({ error: "Internal server error" });
+        const result = await UserController.userlogin(username, password);
+        return res.status(200).json(result)
+    }
+    catch (err) {
+        return res.status(500).json({ error: err.message })
+    }
+});
+router.get("/getUserIdByUserName", async (req, res) => {
+    const { username } = req.body;
+    try {
+        const result = await UserController.getUserIdByUsername(username);
+        return res.status(200).json(result)
+    }
+    catch (err) {
+        return res.status(500).json({ error: err.message })
     }
 });
 

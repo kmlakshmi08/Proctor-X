@@ -37,7 +37,7 @@ export default function Signup() {
             }
             const result = await axios.post(url, formdata)
             if (result.data?.message) {
-                dispatch({ type: actions.SETUSER, payload: { username: result.data.user.username, photo: result.data.user.photo } })
+                dispatch({ type: actions.SETUSER, payload: { id: result.data.user.username, username: result.data.user.username, photo: result.data.user.photo } })
                 navigate("/home")
             }
             else if (result.data.error) {
@@ -45,9 +45,7 @@ export default function Signup() {
             }
         }
         catch (err) {
-            console.log("Status code : ", err.status)
-            setMsg("Please upload an image smaller than 100kb.")
-            console.error(err)
+            setMsg(err.response?.data?.error)
         }
     }
     const handlechange = (e, type) => {

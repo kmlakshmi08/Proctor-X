@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams,useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import styles from "./asessment.module.css";
 import Progress from "../global_components/Progress";
@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import QuestionBox from "../global_components/QuestionBox";
 import Camera from "./Camera"
 import * as img from "../img/index"
+
+const submitAPIurl = "http://localhost:3001/test/evaluate"
 
 export default function Asessment() {
     const [test, setTest] = useState(null);
@@ -16,10 +18,22 @@ export default function Asessment() {
     const [timeLeft, setTimeLeft] = useState(60 * 30);
     const [timer, setTimer] = useState("00:30:00");
     const UserData = useSelector((state) => state.userReducer)
+    const navigate = useNavigate();
 
     const submit = (e) => {
         e.preventDefault()
         setPopup(true)
+    }
+    const submitAsessment = async ()=>{
+        const data = {
+            testId: test._id,
+            userId: UserData.id,
+            answers: answerScript
+        }
+        const result = await axios.post(submitAPIurl,data)
+        if(result?.status === 200){
+            navigate("/tests")
+        }
     }
     const formatTime = (secs) => {
         const hrs = String(Math.floor(secs / 3600)).padStart(2, "0");
@@ -130,7 +144,7 @@ export default function Asessment() {
                             <p>Are you sure to submit your test?</p>
                             <div className={styles.buttons}>
                                 <button onClick={() => { setPopup(false) }}>Cancel</button>
-                                <button>Submit</button>
+                                <button onClick={submitAsessment}>Submit</button>
                             </div>
                         </section>
                     </div>
