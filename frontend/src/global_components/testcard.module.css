@@ -1,9 +1,66 @@
 .card{
-    border: 1px solid black;
+    border: 1px solid var(--text-primary);
     width: 300px;
     border-radius: 5px;
     height: 150px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: all .5s ease;
+
+    span:nth-child(2){
+        color: rgb(255, 73, 73);
+    }
+}   
+.attempted{
+    opacity: 40%;
+}
+.card:hover{
+    cursor: pointer;
+    background-color: var(--gentle-hover);
+}
+.popup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: var(--popup-bg);
+    z-index: 100;
+
+    section{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--bg-primary);
+        height: 50%;
+        width: 40%;
+        
+        div{
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+
+            button{
+                padding: 10px 20px;
+                outline: none;
+                border: none;
+                border-radius: 5px;
+                background-color: green;
+                color: white;
+            }
+            button:hover{
+                cursor: pointer;
+            }
+            .close{
+                background-color: rgb(255, 63, 42) !important;
+            }
+        }
+    }
 }

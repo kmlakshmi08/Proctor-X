@@ -10,12 +10,12 @@ const url = "http://localhost:3001/test/getTestsByUser"
 
 export default function Tests() {
     const [tests, setTests] = useState(null)
-    const theme = useSelector((state)=> state.themeReducer.mode)
+    const theme = useSelector((state) => state.themeReducer.mode)
     const UserData = useSelector((state) => state.userReducer);
 
     useEffect(() => {
         async function fetchuser() {
-            const result = await axios.post(url,{username: UserData.username})
+            const result = await axios.post(url, { username: UserData.username })
             console.log(result.data)
             setTests(result.data)
         }
@@ -29,7 +29,7 @@ export default function Tests() {
                 <div className={styles.testcontainer}>
                     {
                         Array.isArray(tests) && tests.map((test) => (
-                            <TestCard test={test} />
+                            <TestCard test={test} attempted={test.attempted ? true : false} />
                         ))
                     }
                 </div>
