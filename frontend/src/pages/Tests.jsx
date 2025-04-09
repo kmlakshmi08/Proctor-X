@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import axios from "axios"
 import TestCard from "../global_components/TestCard";
 import { useSelector } from "react-redux";
+import Camera from "./Camera.jsx";
 
 const url = "http://localhost:3001/test/"
 

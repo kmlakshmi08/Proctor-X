@@ -1,0 +1,72 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 30px;
+    max-width: 700px; /* slightly increased width */
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.heading {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: #1f2937;
+    margin-bottom: 24px;
+}
+
+.list {
+    list-style-type: none; /* remove bullet since content is grouped manually */
+    padding: 0;
+    color: #374151;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.list li {
+    margin-bottom: 20px;
+    background-color: #f9fafb;
+    border-left: 4px solid #2563eb;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.list li strong {
+    display: block;
+    font-size: 17px;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.startButton {
+    background-color: #2563eb;
+    color: white;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.startButton:hover {
+    background-color: #1d4ed8;
+}

@@ -32,7 +32,7 @@ const Camera = () => {
     };
     startCamera();
 
-    const interval = setInterval(captureImage, 1000);
+    const interval = setInterval(captureImage, 500);
     return () => clearInterval(interval);
   }, []);
 

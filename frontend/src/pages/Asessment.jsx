@@ -132,9 +132,9 @@ export default function Asessment() {
                         </> : null
                 }
             </div>
-            {/* <div className={styles.box}>
+            <div className={styles.box}>
                 <Camera></Camera>
-            </div> */}
+            </div>
             {
                 popup === true ?
                     <div className={styles.popup}>
