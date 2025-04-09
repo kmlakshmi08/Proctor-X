@@ -1,3 +1,4 @@
+const ReportsController = require("./ReportsController");
 const TestSchema = require("../models/testSchema");
 const ReportSchema = require("../models/userTestSchema");
 
@@ -10,10 +11,10 @@ const getAll = async () => {
     }
 };
 
-const getTestByID =  async (id) => {
+const getTestByID = async (id) => {
     try {
-        const tests = await TestSchema.findOne({_id : id});
-        if(!tests){
+        const tests = await TestSchema.findOne({ _id: id });
+        if (!tests) {
             throw new Error("No tests for this id exists.")
         }
         return tests
@@ -22,10 +23,10 @@ const getTestByID =  async (id) => {
     }
 }
 
-const addTest =  async (testName, subject, questions) => {
+const addTest = async (testName, subject, questions) => {
     try {
         const existingTest = await TestSchema.findOne({ testName, subject });
-        if(!testName || ! !subject || !questions){
+        if (!testName || ! !subject || !questions) {
             throw new Error("Either TestName,Subject or questions is missing.")
         }
         if (existingTest) {
@@ -36,6 +37,31 @@ const addTest =  async (testName, subject, questions) => {
         return result
     } catch (error) {
         throw new Error("Error saving test.")
+    }
+}
+
+const getTestsByUser = async (username) => {
+    try {
+        let tests = await getAll();
+        const AttemptedTests = await ReportsController.getAllAttemptedTestsByUsername(username)
+        let result = []
+        tests.forEach((test,key)=>{
+            let updatedTest = {
+                _id: test.id,
+                testName: test.testName,
+                subject: test.subject,
+                questions: test.questions,
+                attempted: false
+            }
+            if(AttemptedTests.includes((test._id).toString())){
+                updatedTest.attempted = true
+            }
+            result.push(updatedTest);
+        })
+        console.log("Final tests returned : ",result)
+        return result
+    } catch (error) {
+        throw new Error("Error fetching tests.")
     }
 }
 
@@ -80,5 +106,6 @@ module.exports = {
     getAll,
     getTestByID,
     addTest,
+    getTestsByUser,
     evaluate
 }

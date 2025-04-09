@@ -44,7 +44,7 @@ router.get("/getUserIdByUserName", async (req, res) => {
     const { username } = req.body;
     try {
         const result = await UserController.getUserIdByUsername(username);
-        return res.status(200).json(result)
+        return res.status(200).json(result._id)
     }
     catch (err) {
         return res.status(500).json({ error: err.message })

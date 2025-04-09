@@ -6,15 +6,16 @@ import TestCard from "../global_components/TestCard";
 import { useSelector } from "react-redux";
 import Camera from "./Camera.jsx";
 
-const url = "http://localhost:3001/test/"
+const url = "http://localhost:3001/test/getTestsByUser"
 
 export default function Tests() {
     const [tests, setTests] = useState(null)
     const theme = useSelector((state)=> state.themeReducer.mode)
+    const UserData = useSelector((state) => state.userReducer);
 
     useEffect(() => {
         async function fetchuser() {
-            const result = await axios.get(url)
+            const result = await axios.post(url,{username: UserData.username})
             console.log(result.data)
             setTests(result.data)
         }

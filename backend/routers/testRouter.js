@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { TestController, ReportsController } = require("../controllers/index")
+const { TestController,UserController } = require("../controllers/index")
 
 router.get("/", async (req, res) => {
     try {
@@ -9,6 +9,17 @@ router.get("/", async (req, res) => {
     }
     catch (err) {
         return res.status(500).json({ error: err })
+    }
+});
+router.post("/getTestsByUser", async (req, res) => {
+    const { username } = req.body;
+    try {
+        //this function returns an extra field in the test object indicating if the user has attempted it or not
+        const result = await TestController.getTestsByUser(username)
+        return res.status(200).json(result)
+    }
+    catch (err) {
+        return res.status(500).json({ error: err.message })
     }
 });
 router.get("/gettestbyID", async (req, res) => {

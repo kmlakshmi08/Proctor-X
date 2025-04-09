@@ -31,7 +31,7 @@ router.get("/getAllAttemptedTestsByUsername", async (req, res) => {
         return res.status(500).json({ error: err.message })
     }
 });
-router.get("/deleteAllReportsByUsername", async (req, res) => {
+router.delete("/deleteAllReportsByUsername", async (req, res) => {
     const { username } = req.body;
     try {
         const result = await ReportsController.deleteAllReportsByUsername(username)

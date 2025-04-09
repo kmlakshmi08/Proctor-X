@@ -11,7 +11,7 @@ const get = async () => {
 
 const getUserIdByUsername = async (username) => {
     try {
-        const user = await userSchema.findOne({ username });
+        const user = await userSchema.findOne({ username },{_id: 1});
         if (!user) {
             throw new Error(`User with username ${username} not found.`)
         }

@@ -5,6 +5,42 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "node",
+            "request": "launch",
+            "name": "MyApp",
+            "program": "${workspaceFolder}/backend/server.js",
+            "runtimeVersion": "4.6.2",
+            "protocol": "legacy",
+            "port": 3001
+            //"runtimeExecutable": "/home/user/.nvm/versions/node/v4.6.2/bin/node"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "nodemon",
+            "runtimeExecutable": "nodemon",
+            "program": "${workspaceRoot}/backend/server.js",
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "runtimeVersion": "4.6.2",
+            "protocol": "legacy",
+            "port": 3001
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "DEBUG",
+            "runtimeExecutable": "nodemon",
+            "program": "${workspaceFolder}/backend/server.js",
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "runtimeVersion": "4.6.2",
+            "protocol": "legacy",
+            "port": 3001
+        },
+        {
             "name": "Start Frontend",
             "type": "node",
             "request": "launch",
