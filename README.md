@@ -36,12 +36,18 @@ npm install mongoose express cors
 
 ## Running the Project  
 
-### Start Backend Server  
+### Start Backend Server 
 Navigate to the `backend` folder and run:
 ```sh
 cd backend  
-python server.py  
 npx nodemon server.js  
+```
+
+#### Python
+```sh
+cd backend
+pip install -r requirements.txt
+python server.py  
 ```
 
 ### Start Frontend Server  
