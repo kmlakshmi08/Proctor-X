@@ -11,6 +11,7 @@ import Profile from "./pages/Profile.jsx"
 import Asessment from "./pages/Asessment.jsx";
 import PageNotFound from "./pages/PageNotFound.jsx";
 import Instructions from "./global_components/Instructions.jsx";
+import Reports from "./pages/Reports.jsx";
 
 
 import "./App.css"
@@ -28,6 +29,7 @@ function App() {
                             <Route path="/profile" element={<Profile />}></Route>
                             <Route path="/asessment" element={<Asessment />}></Route>
                             <Route path="/instructions" element={<Instructions />}></Route>
+                            <Route path="/report" element={<Reports />}></Route>
                             <Route path="*" element={<PageNotFound />}></Route>
                         </Routes>
                     </BrowserRouter>

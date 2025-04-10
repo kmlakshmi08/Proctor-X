@@ -19,7 +19,7 @@ export default function Navbar() {
                         <li><a href="/home">Home</a></li>
                         <li><a href="/profile">Profile</a></li>
                         <li><a href="/tests">Tests</a></li>
-                        <li><a href="/reports">Reports</a></li>
+                        <li><a href="/report">Reports</a></li>
                         <li>
                             <img src={theme === "light" ? img.sun : img.moon} alt="" />
                             <ToggleSwitch title="Theme" action={actions.CHANGETHEME}/>

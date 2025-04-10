@@ -1,0 +1,43 @@
+.mainbox {
+    padding: 2rem;
+    min-height: 100vh;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+.heading {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.reportTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.reportTable th,
+.reportTable td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    text-align: center;
+}
+
+.reportTable th {
+    background-color: #f0f0f0;
+}
+
+[data-theme="dark"] .reportTable th {
+    background-color: #333;
+    color: #fff;
+}
+
+[data-theme="dark"] {
+    --background: #121212;
+    --text: #e0e0e0;
+}
+
+[data-theme=""] {
+    --background: #fff;
+    --text: #000;
+}

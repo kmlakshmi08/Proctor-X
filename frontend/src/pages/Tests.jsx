@@ -4,7 +4,6 @@ import Navbar from "./Navbar";
 import axios from "axios"
 import TestCard from "../global_components/TestCard";
 import { useSelector } from "react-redux";
-import Camera from "./Camera.jsx";
 
 const url = "http://localhost:3001/test/getTestsByUser"
 
@@ -25,7 +24,7 @@ export default function Tests() {
         <>
             <Navbar></Navbar>
             <div className={styles.mainbox} data-theme={`${theme === "light" ? "" : "dark"}`}>
-                <h1>Available Tests</h1>
+                <h1>Tests</h1>
                 <div className={styles.testcontainer}>
                     {
                         Array.isArray(tests) && tests.map((test) => (

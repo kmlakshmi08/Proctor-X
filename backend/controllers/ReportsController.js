@@ -15,7 +15,7 @@ const getallReportsByUser = async (username) => {
         throw new Error("Username is missing.")
     }
     try {
-        const user = await UserController.getUserIdByUsername(username)
+        const user = await getUserIdByUsername(username)
         const reports = await ReportSchema.find({ userId: user._id });
         return reports
     } catch (error) {
