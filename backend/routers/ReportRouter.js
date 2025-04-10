@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
         return res.status(500).json({ error: err.message })
     }
 });
-router.get("/getallReportsByUser", async (req, res) => {
+router.post("/getallReportsByUser", async (req, res) => {
     const { username } = req.body;
     try {
         const result = await ReportsController.getallReportsByUser(username)
