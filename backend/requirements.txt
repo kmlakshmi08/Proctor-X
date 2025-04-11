@@ -6,3 +6,4 @@ torch
 torchvision
 opencv-python
 yolov5
+git+https://github.com/ageitgey/face_recognition_models
