@@ -1,0 +1,75 @@
+/* Theme Handling */
+[data-theme="dark"] {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+[data-theme="light"] {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+.mainbox {
+    background-color: #121212;
+    min-height: 100vh; /* more flexible than fixed 100vh */
+    padding-top: 2rem; /* gives space above */
+    transition: all 0.5s ease;
+}
+/* Main container for report details */
+.details {
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 700px;
+    border-radius: 12px;
+    background-color: #edf0f4;
+    color: black;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"].details {
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 700px;
+    border-radius: 12px;
+    background-color: #2a2a2a;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Heading style */
+.heading {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Text styles */
+.details p {
+    font-size: 1.1rem;
+    margin: 0.75rem 0;
+    line-height: 1.6;
+    color: inherit;
+}
+
+/* Loading text */
+.details p:first-of-type {
+    text-align: center;
+    font-style: italic;
+}
+
+/* Responsive behavior */
+@media (max-width: 600px) {
+    .details {
+        padding: 1.2rem;
+    }
+
+    .heading {
+        font-size: 1.6rem;
+    }
+
+    .details p {
+        font-size: 1rem;
+    }
+}

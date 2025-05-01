@@ -21,6 +21,16 @@ router.post("/getallReportsByUser", async (req, res) => {
         return res.status(500).json({ error: err.message })
     }
 });
+
+router.get("/:reportId", async (req, res) => {
+    try {
+        const report = await ReportsController.getReportById(req.params.reportId);
+        return res.status(200).json(report);
+    } catch (err) {
+        return res.status(500).json({ error: err.message });
+    }
+});
+
 router.get("/getAllAttemptedTestsByUsername", async (req, res) => {
     const { username } = req.body;
     try {

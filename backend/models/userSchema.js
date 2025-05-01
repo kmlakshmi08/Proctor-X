@@ -12,6 +12,10 @@ const userSchema = new mongoose.Schema({
     photo:{
         type:String,
         required:false
+    },
+    isadmin:{
+        type:Boolean,
+        required:true
     }
 });
 

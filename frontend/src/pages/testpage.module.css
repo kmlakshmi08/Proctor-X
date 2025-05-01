@@ -1,12 +1,14 @@
-.mainbox{
+.mainbox {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* changed from center to top-align content */
     flex-direction: column;
     background-color: var(--bg-primary);
-    height: 100vh;
+    min-height: 100vh; /* more flexible than fixed 100vh */
+    padding-top: 2rem; /* gives space above */
     transition: all 0.5s ease;
 }
+
 h1{
     color: var(--text-primary);
 }
@@ -17,4 +19,9 @@ h1{
     flex-wrap: wrap;
     gap: 20px;
     color: var(--text-primary);
+}
+
+h1 {
+    color: var(--text-primary);
+    margin-top: 0;
 }

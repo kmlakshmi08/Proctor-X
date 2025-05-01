@@ -12,9 +12,12 @@ import Asessment from "./pages/Asessment.jsx";
 import PageNotFound from "./pages/PageNotFound.jsx";
 import Instructions from "./global_components/Instructions.jsx";
 import Reports from "./pages/Reports.jsx";
+import ReportDetails from "./pages/ReportDetails.jsx";
+import Admin from "./pages/Admin.jsx"; 
+import ManageUsers from './pages/ManageUsers';
+import ManageTests from './pages/ManageTests';
+import "./App.css";
 
-
-import "./App.css"
 function App() {
     return (
         <>
@@ -30,7 +33,12 @@ function App() {
                             <Route path="/asessment" element={<Asessment />}></Route>
                             <Route path="/instructions" element={<Instructions />}></Route>
                             <Route path="/report" element={<Reports />}></Route>
+                            <Route path="/report/:reportId" element={<ReportDetails />} />
+                            <Route path="/admin" element={<Admin />} />
+                            <Route path="/admin/users" element={<ManageUsers />} />
+                            <Route path="/admin/manageTests" element={<ManageTests />} />
                             <Route path="*" element={<PageNotFound />}></Route>
+
                         </Routes>
                     </BrowserRouter>
                 </PersistGate>

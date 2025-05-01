@@ -10,18 +10,50 @@ const getAllreports = async () => {
     }
 }
 
+// const getallReportsByUser = async (username) => {
+//     if (!username) {
+//         throw new Error("Username is missing.")
+//     }
+//     try {
+//         const user = await getUserIdByUsername(username)
+//         const reports = await ReportSchema.find({ userId: user._id });
+//         return reports
+//     } catch (error) {
+//         throw new Error(error.message)
+//     }
+// }
+
+
 const getallReportsByUser = async (username) => {
     if (!username) {
-        throw new Error("Username is missing.")
+        throw new Error("Username is missing.");
     }
     try {
-        const user = await getUserIdByUsername(username)
-        const reports = await ReportSchema.find({ userId: user._id });
-        return reports
+        const user = await getUserIdByUsername(username);
+        const reports = await ReportSchema.find({ userId: user._id })
+            .populate({
+                path: 'testId',
+                select: 'testName subject' // include testName and subject only
+            });
+
+        return reports;
     } catch (error) {
-        throw new Error(error.message)
+        throw new Error(error.message);
     }
 }
+
+const getReportById = async (reportId) => {
+    try {
+        const report = await ReportSchema.findById(reportId).populate({
+            path: 'testId',
+            select: 'testName subject'
+        });
+        return report;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};
+
 
 const getAllAttemptedTestsByUsername = async (username) => {
     if (!username) {
@@ -54,5 +86,6 @@ module.exports = {
     getAllreports,
     getallReportsByUser,
     getAllAttemptedTestsByUsername,
-    deleteAllReportsByUsername
+    deleteAllReportsByUsername,
+    getReportById
 }

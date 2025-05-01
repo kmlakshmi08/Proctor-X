@@ -20,20 +20,36 @@ export default function Login() {
     const submit = async (e) => {
         e.preventDefault();
         try {
-            const result = await axios.post(url, formdata)
+            const result = await axios.post(url, formdata);
             if (result.data?.message) {
-                dispatch({ type: actions.SETUSER, payload: { id: result.data.user._id, username: result.data.user.username, photo: result.data.user.photo } })
-                navigate("/home")
+                const user = result.data.user;
+                console.log(user);
+                dispatch({
+                    type: actions.SETUSER,
+                    payload: {
+                        id: user._id,
+                        username: user.username,
+                        photo: user.photo,
+                        isAdmin: user.isadmin  
+                    }
+                });
+    
+                // Redirect based on admin status
+                // console.log(user.isadmin)
+                if (user.isadmin) {
+                    navigate("/admin");
+                } else {
+                    navigate("/home");
+                }
             }
-            console.log(result)
-        }
-        catch (err) {
-            if (err.response.data?.error) {
+        } catch (err) {
+            if (err.response?.data?.error) {
                 setMsg(err.response.data.error);
             }
-            console.error(err)
+            console.error(err);
         }
     }
+    
     const handlechange = (e, type) => {
         setFormData((prevvalue) => ({
             ...prevvalue,

@@ -19,7 +19,9 @@
 .card:hover{
     cursor: pointer;
     background-color: var(--gentle-hover);
+    transform: scale(1.02);
 }
+
 .popup{
     display: flex;
     align-items: center;
