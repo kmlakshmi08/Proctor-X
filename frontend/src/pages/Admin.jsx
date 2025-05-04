@@ -10,7 +10,7 @@ export default function Admin() {
       <div className="admin-box">
         <h1 className="admin-title">Admin Dashboard</h1>
         <div className="admin-buttons">
-          <button onClick={() => navigate('/admin/users')} className="admin-button">
+          <button onClick={() => navigate('/admin/manageUsers')} className="admin-button">
             Manage Users
           </button>
           <button onClick={() => navigate('/admin/manageTests')} className="admin-button">

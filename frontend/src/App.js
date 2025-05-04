@@ -35,7 +35,7 @@ function App() {
                             <Route path="/report" element={<Reports />}></Route>
                             <Route path="/report/:reportId" element={<ReportDetails />} />
                             <Route path="/admin" element={<Admin />} />
-                            <Route path="/admin/users" element={<ManageUsers />} />
+                            <Route path="/admin/manageUsers" element={<ManageUsers />} />
                             <Route path="/admin/manageTests" element={<ManageTests />} />
                             <Route path="*" element={<PageNotFound />}></Route>
             
