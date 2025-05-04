@@ -31,9 +31,10 @@ export default function ReportDetails() {
                 {report ? (
                     <>
                         <h2 className={styles.heading}>Results</h2>
-                        <p>Test: {report.testId?.testName || "Unnamed Test"}</p>
-                        <p>Marks: {report.marksObtained}/{report.totalMarks}</p>
+                        <p>Test: {report.testId?.testName || "Unnamed Test"} - {report.testId.subject}</p>
                         <p>Total questions: {report.totalMarks}</p>
+                        <p>Marks obtained: {report.marksObtained}/{report.totalMarks}</p>
+                       
                         <p>Answered: {report.answeredQuestions}</p>
                         <p>Unanswered: {report.totalMarks - report.answeredQuestions}</p>
                     </>

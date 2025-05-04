@@ -1,45 +1,53 @@
+/* Admin.css */
+
 .admin-container {
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fdfdfd;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    padding: 20px;
   }
   
   .admin-box {
-    border: 2px solid black;
-    border-radius: 12px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 40px;
-    width: 400px;
-    background-color: white;
+    width: 100%;
+    max-width: 400px;
     text-align: center;
   }
   
   .admin-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 40px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 30px;
   }
   
   .admin-buttons {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 20px;
   }
   
   .admin-button {
+    background-color: #0a4072;
+    color: white;
+    border: none;
     padding: 12px 20px;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: white;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 16px;
+    font-size: 1.1rem;
+    border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
+    width: 100%;
   }
   
   .admin-button:hover {
-    background-color: black;
-    color: white;
+    background-color: #073b5c;
+  }
+  
+  .admin-button:focus {
+    outline: none;
   }
   

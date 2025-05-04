@@ -1,93 +1,193 @@
+/* ManageTests.css */
+
+
 .manage-tests-container {
-    max-width: 900px;
-    margin: auto;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .test-form,
-  .question-form {
-    margin: 20px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.test-form, .add-question-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: #f9f9f9;
     padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.test-form input, .add-question-form input {
+    padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-  }
-  
-  .test-form input,
-  .question-form input {
-    display: block;
-    width: 95%;
-    margin: 8px;
+    border-radius: 4px;
+    transition: border 0.2s;
+}
+
+.test-form input:focus, .add-question-form input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.test-form button, .add-question-form button, .test-card button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #0a4072;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.test-form button:hover, .add-question-form button:hover, .test-card button:hover {
+    background-color: #145b9c;
+}
+
+.test-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.test-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.test-card h3 {
+    margin: 0 0 10px;
+}
+
+.test-card button {
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.expanded-section {
+    margin-top: 15px;
     padding: 10px;
-    font-size: 16px;
-  }
-  
-  .test-form button,
-  .question-form button,
-  .test-card button {
-    margin-top: 10px;
-    padding: 10px 20px;
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+.expanded-section h4 {
+    margin-bottom: 10px;
+}
+
+.expanded-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.expanded-section li {
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.expanded-section li ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+h5 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.expanded-section li {
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+/* Style for edit input fields */
+.test-card input[type="text"] {
+    padding: 6px 10px;
+    margin: 4px 6px 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     font-size: 14px;
-    background-color: #007bff;
+    width: 180px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.test-card input[type="text"]:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
+}
+
+/* Style for the Save and Cancel buttons in edit mode */
+.test-card button {
+    margin: 4px 4px 4px 0;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.test-card button:hover {
+    opacity: 0.9;
+}
+
+.add-question-form input[type="text"] {
+    width: 100%;
+    padding: 8px 12px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.add-question-form input[type="text"]:focus {
+    border-color: #2196F3;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+    outline: none;
+}
+
+.add-question-form button {
+    margin-top: 8px;
+    padding: 8px 16px;
+    background-color: #2196F3;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-  }
-  
-  .test-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .test-card {
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
-  }
-  
-  .test-card h3 {
-    margin-top: 0;
-  }
-  
-  .test-card ul {
-    list-style-type: disc;
-    padding-left: 20px;
-  }
-  
-  .test-card button {
-    margin-right: 10px;
-  }
-
-  .manage-tests-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    font-size: 14px;
+    transition: background-color 0.3s;
 }
 
-.test-form, .question-form {
-    margin: 10px 0;
+.add-question-form button:hover {
+    background-color: #1976D2;
 }
 
-.test-list {
-    margin-top: 20px;
-}
-
-.test-card {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-}
-
-.expanded-section {
-    margin-top: 10px;
-    padding-left: 20px;
-    background-color: #f9f9f9;
-    border-left: 2px solid #ddd;
-}
-
-  

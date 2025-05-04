@@ -24,7 +24,7 @@ export default function TestCard({ test, classname, attempted }) {
     return (
         <>
             <div data-theme={`${theme === "light" ? "" : "dark"}`} className={`${styles.card} ${classname} ${attempted ? styles.attempted : ""}`} onClick={openTest} onMouseEnter={hoverEvent}>
-                <span>{test.testName}</span>
+                <span>{test.testName} - {test.subject}</span>
                 {
                     attempted ?
                         <span>Already Attempted</span>

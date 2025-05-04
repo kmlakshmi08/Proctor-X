@@ -73,7 +73,7 @@ export default function Asessment() {
             const id = search.get("id")
             const url = `http://localhost:3001/test/gettestbyID?id=${id}`
             const result = await axios.get(url)
-            console.log(result.data)
+            console.log("result.data: ",result.data)
             setTest(result.data)
         }
         fetchtest();
@@ -140,6 +140,7 @@ export default function Asessment() {
                     <div className={styles.popup}>
                         <section>
                             <h1>Done with the test?</h1>
+                            console.log(answerScript)
                             <Progress totalquestions={test.questions.length} answerlength={Object.keys(answerScript).length} />
                             <p>Are you sure to submit your test?</p>
                             <div className={styles.buttons}>

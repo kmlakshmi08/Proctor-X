@@ -22,6 +22,20 @@ router.delete("/:id", async (req, res) => {
     res.json({ message: "Test deleted" });
 });
 
+
+// Update test name and subject
+router.put("/:id", async (req, res) => {
+    const { testName, subject } = req.body;
+    const test = await Test.findByIdAndUpdate(
+        req.params.id,
+        { testName, subject },
+        { new: true }
+    );
+    if (!test) return res.status(404).json({ message: "Test not found" });
+    res.json(test);
+});
+
+
 // Add a question to a test
 router.post("/:id/questions", async (req, res) => {
     const test = await Test.findById(req.params.id);
