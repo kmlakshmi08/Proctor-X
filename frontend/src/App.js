@@ -17,34 +17,40 @@ import Admin from "./pages/Admin.jsx";
 import ManageUsers from './pages/ManageUsers';
 import ManageTests from './pages/ManageTests';
 import "./App.css";
+import { useSelector ,useDispatch} from "react-redux";
 
 function App() {
     return (
-        <>
-            <Provider store={store}>
-                <PersistGate loading={null} persistor={Persistor}>
-                    <BrowserRouter>
-                        <Routes>
-                            <Route path="/" element={<Signup />}></Route>
-                            <Route path="/login" element={<Login />}></Route>
-                            <Route path="/tests" element={<Tests />}></Route>
-                            <Route path="/home" element={<Home />}></Route>
-                            <Route path="/profile" element={<Profile />}></Route>
-                            <Route path="/asessment" element={<Asessment />}></Route>
-                            <Route path="/instructions" element={<Instructions />}></Route>
-                            <Route path="/report" element={<Reports />}></Route>
-                            <Route path="/report/:reportId" element={<ReportDetails />} />
-                            <Route path="/admin" element={<Admin />} />
-                            <Route path="/admin/manageUsers" element={<ManageUsers />} />
-                            <Route path="/admin/manageTests" element={<ManageTests />} />
-                            <Route path="*" element={<PageNotFound />}></Route>
-            
-                        </Routes>
-                    </BrowserRouter>
-                </PersistGate>
-            </Provider>
-        </>
-    )
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={Persistor}>
+                <ThemedApp />
+            </PersistGate>
+        </Provider>
+    );
 }
 
+function ThemedApp() {
+    const theme = useSelector((state) => state.themeReducer.mode);
+    return (
+        <div style={{ height: "100vh",overflowY:"auto", backgroundColor: theme === "dark" ? "black" : "white" }}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Signup />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/tests" element={<Tests />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/asessment" element={<Asessment />} />
+                    <Route path="/instructions" element={<Instructions />} />
+                    <Route path="/report" element={<Reports />} />
+                    <Route path="/report/:reportId" element={<ReportDetails />} />
+                    <Route path="/admin" element={<Admin />} />
+                    <Route path="/admin/manageUsers" element={<ManageUsers />} />
+                    <Route path="/admin/manageTests" element={<ManageTests />} />
+                    <Route path="*" element={<PageNotFound />} />
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
+}
 export default App;

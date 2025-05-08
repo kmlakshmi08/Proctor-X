@@ -24,5 +24,6 @@ app.use(express.json());
 app.use('/login',userRouter);
 app.use('/test',testRouter);
 app.use('/report',reportRouter);
+app.use("/profile", userRouter);
 app.use('/admin/manageTests', manageTestRoutes);
 app.use('/admin/manageUsers', manageUserRouter);

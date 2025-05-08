@@ -84,6 +84,48 @@ const deleteUserByUsername = async (username) => {
         throw new Error(error.message || "Something went wrong while logging in.")
     }
 }
+const updateUsername = async (username, newUsername) => {
+    if (!newUsername) throw new Error("New username required");
+    const user = await userSchema.findOne({ username });
+    if (!user) throw new Error("User not found");
+
+    const userExists = await userSchema.findOne({ username: newUsername });
+    if (userExists) throw new Error("Username already taken");
+
+    user.username = newUsername;
+    await user.save();
+    
+    return {
+        data: [
+            {
+                message: "Username updated successfully",
+                newUsername: user.username
+            }
+        ]
+    };
+};
+
+
+const updatePassword = async (username, newPassword) => {
+    if (!newPassword) throw new Error("New password required");
+
+    const user = await userSchema.findOne({ username });
+    if (!user) throw new Error("User not found");
+
+    user.password = newPassword;
+    await user.save();
+
+    return {
+        data: [
+            {
+                message: "Password updated successfully",
+                newPassword: user.password
+            }
+        ]
+    };
+};
+
+
 
 module.exports = {
     get,
@@ -91,5 +133,7 @@ module.exports = {
     adduser,
     getUserIdByUsername,
     userlogin,
-    deleteUserByUsername
+    deleteUserByUsername,
+    updateUsername,
+    updatePassword
 }

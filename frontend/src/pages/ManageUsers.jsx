@@ -49,7 +49,7 @@ export default function ManageUsers() {
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style={{background:"white"}}>
                     {users.map(user => (
                         <tr key={user._id}>
                             <td>{user.username}</td>

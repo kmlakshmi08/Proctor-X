@@ -19,6 +19,8 @@ h1{
     flex-wrap: wrap;
     gap: 20px;
     color: var(--text-primary);
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {

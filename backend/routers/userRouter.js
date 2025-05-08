@@ -61,4 +61,25 @@ router.get("/deleteUserByUsername", async (req, res) => {
     }
 });
 
+router.put("/updateUsername", async (req, res) => {
+    const { username, newUsername } = req.body;
+    try {
+        const result = await UserController.updateUsername(username, newUsername);
+        res.status(200).json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+router.put("/updatePassword", async (req, res) => {
+    const { username, newPassword } = req.body;
+    try {
+        const result = await UserController.updatePassword(username, newPassword);
+        res.status(200).json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
 module.exports = router;

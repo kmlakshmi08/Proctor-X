@@ -49,7 +49,7 @@ export default function Reports() {
                                 className={styles.card}
                                 onClick={() => navigate(`/report/${report._id}`)}
                             >
-                                {report.testId?.testName || "Unnamed Test"}
+                                {report.testId?.testName || "Unnamed Test"} - {report.testId?.subject}
                             </div>
                         ))}
                     </div>
