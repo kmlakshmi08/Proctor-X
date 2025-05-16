@@ -7,14 +7,23 @@
     padding: 20px;
 }
 
+[data-theme="dark"] .wrapper {
+    background-color: #111827;
+}
+
 .card {
     background-color: white;
     padding: 30px;
-    max-width: 700px; /* slightly increased width */
+    max-width: 700px;
     width: 100%;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
+}
+
+[data-theme="dark"] .card {
+    background-color: #1f2937;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .heading {
@@ -25,13 +34,21 @@
     margin-bottom: 24px;
 }
 
+[data-theme="dark"] .heading {
+    color: #f9fafb;
+}
+
 .list {
-    list-style-type: none; /* remove bullet since content is grouped manually */
+    list-style-type: none;
     padding: 0;
     color: #374151;
     font-size: 16px;
     line-height: 1.8;
     margin-bottom: 30px;
+}
+
+[data-theme="dark"] .list {
+    color: #d1d5db;
 }
 
 .list li {
@@ -42,11 +59,20 @@
     border-radius: 8px;
 }
 
+[data-theme="dark"] .list li {
+    background-color: #374151;
+    border-left-color: #3b82f6;
+}
+
 .list li strong {
     display: block;
     font-size: 17px;
     color: #111827;
     margin-bottom: 8px;
+}
+
+[data-theme="dark"] .list li strong {
+    color: #f3f4f6;
 }
 
 .buttonWrapper {
@@ -69,4 +95,13 @@
 
 .startButton:hover {
     background-color: #1d4ed8;
+}
+
+[data-theme="dark"] .startButton {
+    background-color: #3b82f6;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+}
+
+[data-theme="dark"] .startButton:hover {
+    background-color: #2563eb;
 }

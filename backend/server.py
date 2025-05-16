@@ -17,7 +17,7 @@ face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fronta
 eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
 
 # Load the known face encodings and names
-registered_face_path = os.path.join("known_faces", r"C:\Users\pruth\OneDrive\Pictures\Pruthvi K P.jpg")
+registered_face_path = "../frontend/src/img/Pruthvi.jpg"
 registered_image = face_recognition.load_image_file(registered_face_path)
 registered_encoding = face_recognition.face_encodings(registered_image)[0]
 
@@ -38,10 +38,13 @@ def detect_face_and_eyes(img):
 
     # Eye Detection
     eye_detected = False
+
     for (x, y, w, h) in faces:
         roi_gray = gray[y:y+h, x:x+w]
-        eyes = eye_cascade.detectMultiScale(roi_gray)
-        if len(eyes) > 0: eye_detected = True
+        if roi_gray.size > 0:
+            eyes = eye_cascade.detectMultiScale(roi_gray)
+            if len(eyes) > 0:
+                eye_detected = True
 
     return num_faces, eye_detected
 
@@ -72,7 +75,8 @@ def detect_banned_objects(img):
     return detected_banned, banned_objects
 
 def analyze_face_orientation(img):
-    results = face_mesh.process(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    with mp_face_mesh.FaceMesh(static_image_mode=False, max_num_faces=1, refine_landmarks=True) as face_mesh:
+        results = face_mesh.process(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
 
     if not results.multi_face_landmarks:
         return "unknown", False, "unknown"
